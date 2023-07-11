@@ -24,3 +24,12 @@ function sendFile(req: Request, res: Response) {
 function notFound(req: Request, res: Response) {
 	res.status(404).sendFile(path.join(__dirname, '../client/build/index.html'));
 }
+
+function genCode() {
+	let code = '';
+	for (let i = 0; i < 16; i++) {
+		code += String.fromCharCode(Math.floor(Math.random() * 26) + 97);
+	}
+
+	return code;
+}
