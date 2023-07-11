@@ -1,7 +1,7 @@
 {
-	"name": "retmod",
-	"version": "1.0.2",
-	"description": "Retmod - A stack including React, Express, TailwindCSS, MongoDB and Docker out of the box.",
+	"name": "sky-transfer",
+	"version": "1.0.0",
+	"description": "The sky transfer website/backend",
 	"main": "index.js",
 	"author": "RedCrafter07",
 	"license": "GPL-3.0-or-later",
