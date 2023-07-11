@@ -1,9 +1,14 @@
 export default function Home() {
 	return (
-		<div className='bg-zinc-800 text-white min-h-screen p-2'>
+		<div className='bg-[#111111] text-white min-h-screen p-2'>
+			<div className='h-16 w-full bg-[#222] fixed top-0 left-0 p-2 flex'>
+				<p className='uppercase text-2xl my-auto font-black tracking-widest'>
+					Skytransfer
+				</p>
+			</div>
+			<div className='h-16' />
 			<div className='mx-auto container'>
-				<img src='/assets/avatar.png' alt='' />
-				<h1>Welcome to Retmod!</h1>
+				<h1>Welcome to Sky Transfer!</h1>
 			</div>
 		</div>
 	);
