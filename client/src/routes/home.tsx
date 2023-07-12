@@ -50,9 +50,12 @@ export default function Home() {
 			<Banner />
 			<div className='bg-[#222222]'>
 				<div className='container mx-auto p-2'>
-					<div className='grid grid-cols-3 grid-rows-2 gap-4 w-full h-full'>
+					<div
+						className='grid grid-cols-3 grid-rows-2 gap-4 w-full h-full'
+						id='features'
+					>
 						<div className='h-full p-8 bg-[#333] border-white border-opacity-10 border rounded-lg text-left flex flex-col items-start justify-center group'>
-							<IconRocket className='w-12 h-auto text-[#ccf] group-hover:drop-shadow-glow transition-all duration-100' />
+							<IconRocket className='w-12 h-auto text-[#ccf] group-hover:drop-shadow-glow-small transition-all duration-100' />
 							<div className='my-2' />
 							<h2 className='text-xl'>Start fast</h2>
 							<p className='opacity-80'>
@@ -60,7 +63,7 @@ export default function Home() {
 							</p>
 						</div>
 						<div className='h-full p-8 bg-[#333] border-white border-opacity-10 border rounded-lg text-left flex flex-col items-start justify-center group'>
-							<IconLock className='w-12 h-auto text-[#ccf] group-hover:drop-shadow-glow transition-all duration-100' />
+							<IconLock className='w-12 h-auto text-[#ccf] group-hover:drop-shadow-glow-small transition-all duration-100' />
 							<div className='my-2' />
 							<h2 className='text-xl'>No data storage</h2>
 							<p className='opacity-80'>
@@ -68,7 +71,7 @@ export default function Home() {
 							</p>
 						</div>
 						<div className='row-span-2 p-8 bg-[#333] border-white border-opacity-10 border rounded-lg flex flex-col justify-center h-full group'>
-							<IconCode className='w-12 h-auto text-[#ccf] group-hover:drop-shadow-glow transition-all duration-100' />
+							<IconCode className='w-12 h-auto text-[#ccf] group-hover:drop-shadow-glow-small transition-all duration-100' />
 							<div className='my-2' />
 							<h2 className='text-xl'>We're open source!</h2>
 							<p className='opacity-80'>
@@ -78,7 +81,7 @@ export default function Home() {
 							</p>
 						</div>
 						<div className='col-span-2 h-full p-8 bg-[#333] border-white border-opacity-10 border rounded-lg text-left flex flex-col items-start justify-center group'>
-							<IconDeviceDesktop className='w-12 h-auto text-[#ccf] group-hover:drop-shadow-glow transition-all duration-100' />
+							<IconDeviceDesktop className='w-12 h-auto text-[#ccf] group-hover:drop-shadow-glow-small transition-all duration-100' />
 							<div className='my-2' />
 							<h2 className='text-xl'>Cross-Platform</h2>
 							<p className='opacity-80 w-3/4'>
@@ -90,7 +93,7 @@ export default function Home() {
 						</div>
 						<div className='col-span-3 gap-4 grid grid-cols-4'>
 							<div className='h-full p-8 bg-[#333] border-white border-opacity-10 border rounded-lg text-left flex flex-col items-start justify-center group'>
-								<IconBrandReact className='text-[#ccf] group-hover:drop-shadow-glow transition-all duration-100 w-12 h-auto' />
+								<IconBrandReact className='text-[#ccf] group-hover:drop-shadow-glow-small transition-all duration-100 w-12 h-auto' />
 								<div className='my-2' />
 								<h2 className='text-xl'>Built with React</h2>
 								<p className='opacity-80 w-3/4'>
@@ -99,7 +102,7 @@ export default function Home() {
 								</p>
 							</div>
 							<div className='h-full p-8 bg-[#333] border-white border-opacity-10 border rounded-lg text-left flex flex-col items-start justify-center group'>
-								<IconBrandGithub className='text-[#ccf] group-hover:drop-shadow-glow transition-all duration-100 w-12 h-auto' />
+								<IconBrandGithub className='text-[#ccf] group-hover:drop-shadow-glow-small transition-all duration-100 w-12 h-auto' />
 								<div className='my-2' />
 								<h2 className='text-xl'>Hosted on GitHub</h2>
 								<p className='opacity-80 w-3/4'>
@@ -107,7 +110,7 @@ export default function Home() {
 								</p>
 							</div>
 							<div className='h-full p-8 bg-[#333] border-white border-opacity-10 border rounded-lg text-left flex flex-col items-start justify-center group'>
-								<IconBrandDocker className='text-[#ccf] group-hover:drop-shadow-glow transition-all duration-100 w-12 h-auto' />
+								<IconBrandDocker className='text-[#ccf] group-hover:drop-shadow-glow-small transition-all duration-100 w-12 h-auto' />
 								<div className='my-2' />
 								<h2 className='text-xl'>Running with Docker</h2>
 								<p className='opacity-80 w-3/4'>
@@ -116,7 +119,7 @@ export default function Home() {
 								</p>
 							</div>
 							<div className='h-full p-8 bg-[#333] border-white border-opacity-10 border rounded-lg text-left flex flex-col items-start justify-center group'>
-								<IconServer className='text-[#ccf] group-hover:drop-shadow-glow transition-all duration-100 w-12 h-auto' />
+								<IconServer className='text-[#ccf] group-hover:drop-shadow-glow-small transition-all duration-100 w-12 h-auto' />
 								<div className='my-2' />
 								<h2 className='text-xl'>
 									Self-host{' '}
@@ -129,6 +132,15 @@ export default function Home() {
 							</div>
 						</div>
 					</div>
+					<div className='my-16' />
+					<div className='flex flex-row items-center gap-8 text-center'>
+						<div className='w-full h-px flex-1 bg-white opacity-10' />
+						<p className='text-[#ccf] text-2xl' id='downloads'>
+							Downloads
+						</p>
+						<div className='w-full h-px flex-1 bg-white opacity-10' />
+					</div>
+					<div className='my-8' />
 				</div>
 			</div>
 		</div>
