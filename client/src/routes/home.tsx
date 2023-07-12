@@ -57,7 +57,7 @@ export default function Home() {
 			<div className='bg-[#222222]'>
 				<div className='container mx-auto p-2'>
 					<div
-						className='grid grid-cols-3 grid-rows-2 gap-4 w-full h-full'
+						className='grid grid-cols-1 lg:grid-cols-3 lg:grid-rows-2 gap-4 w-full h-full'
 						id='features'
 					>
 						<div className='h-full p-8 bg-[#333] border-white border-opacity-10 border rounded-lg text-left flex flex-col items-start justify-center group'>
@@ -76,7 +76,7 @@ export default function Home() {
 								We don't store any but the required data
 							</p>
 						</div>
-						<div className='row-span-2 p-8 bg-[#333] border-white border-opacity-10 border rounded-lg flex flex-col justify-center h-full group'>
+						<div className='lg:row-span-2 p-8 bg-[#333] border-white border-opacity-10 border rounded-lg flex flex-col justify-center h-full group'>
 							<IconCode className='w-12 h-auto text-[#ccf] group-hover:drop-shadow-glow-small transition-all duration-100' />
 							<div className='my-2' />
 							<h2 className='text-xl'>We're open source!</h2>
@@ -86,7 +86,7 @@ export default function Home() {
 								on our GitHub page. Feel free to contribute to this project!
 							</p>
 						</div>
-						<div className='col-span-2 h-full p-8 bg-[#333] border-white border-opacity-10 border rounded-lg text-left flex flex-col items-start justify-center group'>
+						<div className='lg:col-span-2 h-full p-8 bg-[#333] border-white border-opacity-10 border rounded-lg text-left flex flex-col items-start justify-center group'>
 							<IconDeviceDesktop className='w-12 h-auto text-[#ccf] group-hover:drop-shadow-glow-small transition-all duration-100' />
 							<div className='my-2' />
 							<h2 className='text-xl'>Cross-Platform</h2>
@@ -97,7 +97,7 @@ export default function Home() {
 								on your phone more easily
 							</p>
 						</div>
-						<div className='col-span-3 gap-4 grid grid-cols-4'>
+						<div className='lg:col-span-3 gap-4 grid grid-cols-1 lg:grid-cols-4'>
 							<div className='h-full p-8 bg-[#333] border-white border-opacity-10 border rounded-lg text-left flex flex-col items-start justify-center group'>
 								<IconBrandReact className='text-[#ccf] group-hover:drop-shadow-glow-small transition-all duration-100 w-12 h-auto' />
 								<div className='my-2' />
