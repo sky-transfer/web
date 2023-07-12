@@ -37,7 +37,7 @@ export default function Home() {
 		}
 
 		return () => {
-			mainComponent.current!.removeEventListener('scroll', onScroll);
+			mainComponent.current?.removeEventListener('scroll', onScroll);
 		};
 	}, [mainComponent.current]);
 
