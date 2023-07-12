@@ -154,11 +154,11 @@ export default function Home() {
 					<div className='my-8' />
 					<div className='flex flex-row gap-4 items-center justify-center'>
 						<button className='btn-primary flex flex-row gap-4 font-bold'>
-							<IconBrandAndroid /> Android App
-						</button>
-						<button className='btn-secondary flex flex-row gap-4 font-bold'>
 							<IconWorld />
 							Website
+						</button>
+						<button className='btn-secondary flex flex-row gap-4 font-bold'>
+							<IconBrandAndroid /> Android App
 						</button>
 					</div>
 					<br />
