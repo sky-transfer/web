@@ -47,7 +47,7 @@ export default function Home() {
 			ref={mainComponent}
 		>
 			<div
-				className={`h-16 w-full bg-[#111] backdrop-blur-sm ${
+				className={`h-16 w-[calc(100%-10px)] bg-[#111] backdrop-blur-sm ${
 					enableBg ? 'bg-opacity-25' : 'bg-opacity-0'
 				} fixed top-0 left-0 p-2 flex z-50 transition-all duration-100`}
 			>
