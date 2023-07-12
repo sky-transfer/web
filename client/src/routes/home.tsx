@@ -134,7 +134,10 @@ export default function Home() {
 						</div>
 					</div>
 					<div className='my-16' />
-					<div className='flex flex-row items-center gap-8 text-center'>
+					<div
+						className='flex flex-row items-center gap-8 text-center'
+						id='downloads'
+					>
 						<div className='w-full h-px flex-1 bg-white opacity-10' />
 						<p className='text-[#ccf] text-2xl' id='downloads'>
 							Downloads
