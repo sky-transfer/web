@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from 'react';
 import Banner from '../components/Banner';
 import {
+	IconBrandAndroid,
 	IconBrandDocker,
 	IconBrandGithub,
 	IconBrandReact,
@@ -142,7 +143,7 @@ export default function Home() {
 					</div>
 					<div className='my-8' />
 					<button className='rounded-full bg-[#ccf] p-4 text-black active:scale-95 hover:drop-shadow-glow transition-all duration-100 flex flex-row gap-4'>
-						<IconDeviceMobile /> Mobile App
+						<IconBrandAndroid /> Android App
 					</button>
 				</div>
 			</div>
