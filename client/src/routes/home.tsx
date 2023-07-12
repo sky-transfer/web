@@ -8,6 +8,7 @@ import {
 	IconCode,
 	IconDeviceDesktop,
 	IconDeviceMobile,
+	IconDownload,
 	IconLock,
 	IconRocket,
 	IconServer,
@@ -142,8 +143,12 @@ export default function Home() {
 						id='downloads'
 					>
 						<div className='w-full h-px flex-1 bg-white opacity-10' />
-						<p className='text-[#ccf] text-2xl' id='downloads'>
-							Downloads
+						<p
+							className='text-[#ccf] text-2xl flex flex-row gap-2 hover:drop-shadow-glow-small transition-all duration-100'
+							id='downloads'
+						>
+							<IconDownload className='my-auto' />
+							<span className='my-auto'>Downloads</span>
 						</p>
 						<div className='w-full h-px flex-1 bg-white opacity-10' />
 					</div>
