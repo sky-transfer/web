@@ -157,7 +157,10 @@ export default function Home() {
 							<IconWorld />
 							Website
 						</button>
-						<button className='btn-secondary flex flex-row gap-4 font-bold'>
+						<button
+							onClick={() => open('/download/android', '_blank')}
+							className='btn-secondary flex flex-row gap-4 font-bold'
+						>
 							<IconBrandAndroid /> Android App
 						</button>
 					</div>
