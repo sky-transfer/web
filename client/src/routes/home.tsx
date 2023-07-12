@@ -9,6 +9,7 @@ import {
 	IconDeviceMobile,
 	IconLock,
 	IconRocket,
+	IconServer,
 } from '@tabler/icons-react';
 
 export default function Home() {
@@ -97,14 +98,6 @@ export default function Home() {
 								</p>
 							</div>
 							<div className='h-full p-8 bg-[#333] border-white border-opacity-10 border rounded-lg text-left flex flex-col items-start justify-center group'>
-								<IconDeviceMobile className='text-[#ccf] group-hover:drop-shadow-glow transition-all duration-100 w-12 h-auto' />
-								<div className='my-2' />
-								<h2 className='text-xl'>... and React Native</h2>
-								<p className='opacity-80 w-3/4'>
-									We use React Native for our mobile app
-								</p>
-							</div>
-							<div className='h-full p-8 bg-[#333] border-white border-opacity-10 border rounded-lg text-left flex flex-col items-start justify-center group'>
 								<IconBrandGithub className='text-[#ccf] group-hover:drop-shadow-glow transition-all duration-100 w-12 h-auto' />
 								<div className='my-2' />
 								<h2 className='text-xl'>Hosted on GitHub</h2>
@@ -119,6 +112,18 @@ export default function Home() {
 								<p className='opacity-80 w-3/4'>
 									Under the hood, we use Docker to run our server. This makes
 									our server more secure and easier to deploy
+								</p>
+							</div>
+							<div className='h-full p-8 bg-[#333] border-white border-opacity-10 border rounded-lg text-left flex flex-col items-start justify-center group'>
+								<IconServer className='text-[#ccf] group-hover:drop-shadow-glow transition-all duration-100 w-12 h-auto' />
+								<div className='my-2' />
+								<h2 className='text-xl'>
+									Self-host-able{' '}
+									<span className='opacity-50 text-[#ccf]'>(coming soon!)</span>
+								</h2>
+								<p className='opacity-80 w-3/4'>
+									We provide a Docker image for you to host your own Sky
+									Transfer server
 								</p>
 							</div>
 						</div>
