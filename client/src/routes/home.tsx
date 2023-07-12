@@ -7,18 +7,19 @@ import {
 	IconBrandReact,
 	IconCode,
 	IconDeviceDesktop,
-	IconDeviceMobile,
-	IconDownload,
 	IconLock,
 	IconRocket,
 	IconServer,
 	IconWorld,
 } from '@tabler/icons-react';
 import Footer from '../components/Footer';
+import { useNavigate } from 'react-router-dom';
 
 export default function Home() {
 	const [enableBg, setEnableBg] = useState(false);
 	const mainComponent = useRef<HTMLDivElement>(null);
+
+	const navigate = useNavigate();
 
 	const [scrollY, setScrollY] = useState(0);
 
@@ -153,7 +154,12 @@ export default function Home() {
 					</div>
 					<div className='my-8' />
 					<div className='flex flex-row gap-4 items-center justify-center'>
-						<button className='btn-primary flex flex-row gap-4 font-bold'>
+						<button
+							className='btn-primary flex flex-row gap-4 font-bold'
+							onClick={() => {
+								navigate('/app');
+							}}
+						>
 							<IconWorld />
 							Web Interface
 						</button>
