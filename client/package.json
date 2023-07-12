@@ -9,6 +9,7 @@
 	"dependencies": {
 		"@babel/core": "^7.18.10",
 		"@fontsource/figtree": "^5.0.5",
+		"@tabler/icons-react": "^2.24.0",
 		"@types/node": "^18.7.1",
 		"@types/react": "^18.0.17",
 		"@types/react-dom": "^18.0.6",
