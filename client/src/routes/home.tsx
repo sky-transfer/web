@@ -119,7 +119,7 @@ export default function Home() {
 								<IconServer className='text-[#ccf] group-hover:drop-shadow-glow transition-all duration-100 w-12 h-auto' />
 								<div className='my-2' />
 								<h2 className='text-xl'>
-									Self-host-able{' '}
+									Self-host{' '}
 									<span className='opacity-50 text-[#ccf]'>(coming soon!)</span>
 								</h2>
 								<p className='opacity-80 w-3/4'>
