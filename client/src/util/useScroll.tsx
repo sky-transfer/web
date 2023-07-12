@@ -17,7 +17,7 @@ function useScroll(ref?: React.RefObject<HTMLDivElement>) {
 		return () => {
 			component.removeEventListener('scroll', onScroll);
 		};
-	}, []);
+	}, [component]);
 
 	return { scrollY, scrollX };
 }
