@@ -27,7 +27,14 @@ export default function Banner(props: { scrollY: number }) {
 					</h1>
 					<p className='text-xl md:text-2xl lg:text-3xl'>Meet Sky Transfer</p>
 					<div className='my-8' />
-					<button className='mx-auto btn-primary flex flex-row gap-4 font-bold'>
+					<button
+						className='mx-auto btn-primary flex flex-row gap-4 font-bold'
+						onClick={() => {
+							const start = document.getElementById('start');
+							if (!start) return;
+							start.scrollIntoView({ behavior: 'smooth' });
+						}}
+					>
 						<IconRocket /> Get me started!
 					</button>
 				</div>
