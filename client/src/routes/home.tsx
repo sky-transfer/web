@@ -155,7 +155,7 @@ export default function Home() {
 					<div className='flex flex-row gap-4 items-center justify-center'>
 						<button className='btn-primary flex flex-row gap-4 font-bold'>
 							<IconWorld />
-							Website
+							Web Interface
 						</button>
 						<button
 							onClick={() => open('/download/android', '_blank')}
