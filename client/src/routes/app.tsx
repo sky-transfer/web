@@ -51,7 +51,7 @@ export default function App() {
 	}, []);
 
 	return (
-		<div>
+		<div className='min-h-screen overflow-x-hidden max-h-screen overflow-y-visible bg-[#222]'>
 			<div className='flex min-h-screen'>
 				<button className='absolute top-4 left-4'>
 					<IconX
