@@ -9,3 +9,7 @@ h1 {
 * {
 	font-family: 'Figtree';
 }
+
+body {
+	@apply overflow-hidden;
+}
