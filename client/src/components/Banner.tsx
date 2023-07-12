@@ -1,5 +1,4 @@
 import { IconRocket } from '@tabler/icons-react';
-import useScroll from '../util/useScroll';
 
 export default function Banner(props: { scrollY: number }) {
 	const { scrollY } = props;
