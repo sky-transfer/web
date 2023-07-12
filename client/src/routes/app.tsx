@@ -40,13 +40,13 @@ export default function App() {
 							<h1 className='text-[#ccf] text-3xl font-bold'>Send text</h1>
 							<div className='my-8' />
 							<h3 className='opacity-80 text-xl'>Scan the QR Code</h3>
-							<div className='my-4' />
+							<div className='my-2' />
 							<QRCodeCanvas value={code} bgColor='#0000' fgColor='#ccf' />
 							<div className='my-8' />
 							<h3 className='opacity-80 text-xl'>
 								or type in the code manually:
 							</h3>
-							<div className='my-4' />
+							<div className='my-2' />
 							<p>{code}</p>
 						</div>
 						<div className='flex flex-row lg:flex-col h-full items-center gap-4'>
@@ -54,14 +54,18 @@ export default function App() {
 							<p>OR</p>
 							<div className='h-full w-px bg-white opacity-10 flex-1' />
 						</div>
-						<div className='flex-1'>
+						<div className='flex-1 flex flex-col items-center justify-center'>
 							<h1 className='text-[#ccf] text-3xl font-bold'>Receive</h1>
 							<div className='my-8' />
-							<p>Type in code</p>
-							<div className='my-4' />
+							<p>Type in code:</p>
+							<div className='my-2' />
 							<form
 								onSubmit={(e) => {
 									e.preventDefault();
+									const code = new FormData(e.target as HTMLFormElement).get(
+										'code',
+									);
+									socket.emit('code', code);
 								}}
 							>
 								<input
