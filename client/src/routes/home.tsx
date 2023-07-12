@@ -141,6 +141,9 @@ export default function Home() {
 						<div className='w-full h-px flex-1 bg-white opacity-10' />
 					</div>
 					<div className='my-8' />
+					<button className='rounded-full bg-[#ccf] p-4 text-black active:scale-95 hover:drop-shadow-glow transition-all duration-100 flex flex-row gap-4'>
+						<IconDeviceMobile /> Mobile App
+					</button>
 				</div>
 			</div>
 		</div>
