@@ -1,3 +1,4 @@
+import { IconRocket } from '@tabler/icons-react';
 import useScroll from '../util/useScroll';
 
 export default function Banner(props: { scrollY: number }) {
@@ -26,8 +27,8 @@ export default function Banner(props: { scrollY: number }) {
 					</h1>
 					<p className='text-xl md:text-2xl lg:text-3xl'>Meet Sky Transfer</p>
 					<div className='my-8' />
-					<button className='rounded-full bg-[#ccf] p-4 text-black active:scale-95 hover:drop-shadow-glow transition-all duration-100'>
-						Get me started!
+					<button className='mx-auto rounded-full bg-[#ccf] p-4 text-black active:scale-95 hover:drop-shadow-glow transition-all duration-100 flex flex-row gap-4 font-bold'>
+						<IconRocket /> Get me started!
 					</button>
 				</div>
 			</div>
