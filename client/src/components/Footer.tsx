@@ -29,6 +29,7 @@ export default function Footer() {
 				<a
 					className='underline text-white'
 					href='https://redcrafter07.de/imprint'
+					target='_blank'
 				>
 					<p>Imprint</p>
 				</a>
