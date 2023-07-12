@@ -20,16 +20,25 @@ socket.on('connect', (socket) => {
 	socket.data.type = 'sender';
 
 	socket.on('code', async (c: string) => {
-		socket.data.type = 'receiver';
-		socket.data.code = c;
+		// check which room the socket is in
+		// if (socket.data.code) return;
 
 		const allSockets = await socket.to(c).fetchSockets();
-		if (allSockets.length <= 1) {
+		if (allSockets.length < 1) {
 			socket.emit('error', 'No sender found');
 			return;
 		}
 
+		socket.data.type = 'receiver';
+		socket.data.code = c;
+
 		socket.join(c);
+
+		allSockets.forEach((s) => {
+			s.emit('type', s.data.type);
+		});
+
+		socket.emit('type', socket.data.type);
 	});
 
 	socket.on('disconnect', () => {
