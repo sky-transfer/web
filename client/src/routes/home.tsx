@@ -149,7 +149,7 @@ export default function Home() {
 							id='downloads'
 						>
 							<IconDownload className='my-auto' />
-							<span className='my-auto'>Downloads</span>
+							<span className='my-auto font-bold'>Downloads</span>
 						</p>
 						<div className='w-full h-px flex-1 bg-white opacity-10' />
 					</div>
@@ -159,6 +159,7 @@ export default function Home() {
 							<IconBrandAndroid /> Android App
 						</button>
 					</div>
+					<br />
 				</div>
 				<Footer />
 			</div>
