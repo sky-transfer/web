@@ -14,3 +14,11 @@ h1 {
 body {
 	@apply overflow-hidden;
 }
+
+.btn-secondary {
+	@apply rounded-full border border-[#ccf] p-4 text-[#ccf] active:scale-95 hover:bg-[#ccf] hover:text-black transition-all duration-100;
+}
+
+.btn-primary {
+	@apply rounded-full bg-[#ccf] p-4 text-black active:scale-95 hover:drop-shadow-glow transition-all duration-100;
+}
