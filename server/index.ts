@@ -36,7 +36,7 @@ socket.on('connect', (socket) => {
 		socket.leave(socket.data.code);
 
 		// disconnect other socket
-		socket.to(socket.data.code).emit('disconnect');
+		socket.to(socket.data.code).disconnectSockets(true);
 	});
 
 	socket.on('text', async (data: string) => {
