@@ -11,6 +11,8 @@ const socket = new Server(server, {
 	transports: ['websocket'],
 });
 
+let sockets: Record<string, string> = {};
+
 socket.on('connect', (socket) => {
 	socket.emit('deviceID', genDeviceID());
 
@@ -18,6 +20,8 @@ socket.on('connect', (socket) => {
 	socket.emit('code', code);
 	socket.join(code);
 	socket.data.type = 'sender';
+
+	sockets[socket.id] = code;
 
 	socket.on('code', async (c: string) => {
 		// check which room the socket is in
@@ -32,6 +36,8 @@ socket.on('connect', (socket) => {
 		socket.data.type = 'receiver';
 		socket.data.code = c;
 
+		sockets[socket.id] = c;
+
 		socket.join(c);
 
 		allSockets.forEach((s) => {
@@ -42,10 +48,12 @@ socket.on('connect', (socket) => {
 	});
 
 	socket.on('disconnect', () => {
-		// socket.leave(socket.data.code);
+		const code = sockets[socket.id];
+		if (!code) return;
 
-		// disconnect other sockets
-		socket.in(socket.data.code).disconnectSockets(true);
+		socket.to(code).emit('end-disconnected');
+
+		delete sockets[socket.id];
 	});
 
 	socket.on('text', async (data: string) => {
