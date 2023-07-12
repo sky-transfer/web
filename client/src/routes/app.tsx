@@ -90,7 +90,7 @@ export default function App() {
 									<input
 										name='code'
 										type='text'
-										className='w-full p-2 focus:outline-none border-2 border-white border-opacity-10 placeholder:text-white focus:border-opacity-30 placeholder:opacity-50 bg-[#222] rounded-lg transition-all duration-100'
+										className='w-full p-2 focus:outline-none border-2 border-white border-opacity-10 placeholder:text-white focus:border-opacity-30 placeholder:opacity-50 bg-[#111] rounded-lg transition-all duration-100'
 										placeholder='Code'
 										value={inputText}
 										onChange={(e) => {
@@ -149,7 +149,7 @@ export default function App() {
 									<input
 										name='code'
 										type='text'
-										className='w-full p-2 focus:outline-none border-2 border-white border-opacity-10 placeholder:text-white focus:border-opacity-30 placeholder:opacity-50 bg-[#222] rounded-lg transition-all duration-100'
+										className='w-full p-2 focus:outline-none border-2 border-white border-opacity-10 placeholder:text-white focus:border-opacity-30 placeholder:opacity-50 bg-[#111] rounded-lg transition-all duration-100'
 										placeholder='Code'
 									/>
 								</form>
