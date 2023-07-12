@@ -12,6 +12,7 @@ import {
 	IconLock,
 	IconRocket,
 	IconServer,
+	IconWorld,
 } from '@tabler/icons-react';
 import Footer from '../components/Footer';
 
@@ -141,22 +142,23 @@ export default function Home() {
 					<div className='my-16' />
 					<div
 						className='flex flex-row items-center gap-8 text-center'
-						id='downloads'
+						id='start'
 					>
 						<div className='w-full h-px flex-1 bg-white opacity-10' />
-						<p
-							className='text-[#ccf] text-2xl flex flex-row gap-2 hover:drop-shadow-glow-small transition-all duration-100'
-							id='downloads'
-						>
-							<IconDownload className='my-auto' />
-							<span className='my-auto font-bold'>Downloads</span>
+						<p className='text-[#ccf] text-2xl flex flex-row gap-2 hover:drop-shadow-glow-small transition-all duration-100'>
+							<IconRocket className='my-auto' />
+							<span className='my-auto font-bold'>Let's get started!</span>
 						</p>
 						<div className='w-full h-px flex-1 bg-white opacity-10' />
 					</div>
 					<div className='my-8' />
-					<div className='flex'>
-						<button className='mx-auto rounded-full bg-[#ccf] p-4 text-black active:scale-95 hover:drop-shadow-glow transition-all duration-100 flex flex-row gap-4 font-bold'>
+					<div className='flex flex-row gap-4 items-center justify-center'>
+						<button className='btn-primary flex flex-row gap-4 font-bold'>
 							<IconBrandAndroid /> Android App
+						</button>
+						<button className='btn-secondary flex flex-row gap-4 font-bold'>
+							<IconWorld />
+							Website
 						</button>
 					</div>
 					<br />
