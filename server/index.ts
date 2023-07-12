@@ -23,7 +23,7 @@ socket.on('connect', (socket) => {
 		// check which room the socket is in
 		// if (socket.data.code) return;
 
-		const allSockets = await socket.to(c).fetchSockets();
+		const allSockets = await socket.in(c).fetchSockets();
 		if (allSockets.length < 1) {
 			socket.emit('error', 'No sender found');
 			return;
@@ -42,16 +42,19 @@ socket.on('connect', (socket) => {
 	});
 
 	socket.on('disconnect', () => {
-		socket.leave(socket.data.code);
+		// socket.leave(socket.data.code);
 
-		// disconnect other socket
-		socket.to(socket.data.code).disconnectSockets(true);
+		// disconnect other sockets
+		socket.in(socket.data.code).disconnectSockets(true);
 	});
 
 	socket.on('text', async (data: string) => {
-		const members = await socket.to(socket.data.code).fetchSockets();
+		if (socket.data.type != 'sender') return;
 
-		console.log(members);
+		const code = [...socket.rooms.values()].find((r) => r != socket.id);
+		if (!code) return;
+
+		const members = await socket.in(code).fetchSockets();
 
 		members
 			.filter((s) => s.data.type == 'receiver')
