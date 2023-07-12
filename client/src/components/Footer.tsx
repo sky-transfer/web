@@ -23,6 +23,16 @@ export default function Footer() {
 					<p>GitHub</p>
 				</a>
 			</div>
+			<div className='my-auto lg:my-0'>
+				<p className='text-[#ccf] font-bold text-xl'>Legal</p>
+				<div className='my-2' />
+				<a
+					className='underline text-white'
+					href='https://redcrafter07.de/imprint'
+				>
+					<p>Imprint</p>
+				</a>
+			</div>
 		</div>
 	);
 }
