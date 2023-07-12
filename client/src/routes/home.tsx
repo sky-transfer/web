@@ -81,9 +81,10 @@ export default function Home() {
 							<div className='my-2' />
 							<h2 className='text-xl'>Cross-Platform</h2>
 							<p className='opacity-80 w-3/4'>
-								Because of the web interface alone, you can use Sky Transfer on
-								any device you like! We have built our own Android app too, so
-								you can use it on your phone more easily
+								Just because of the web interface alone, you can use Sky
+								Transfer on any device you like!
+								<br /> We have built our own Android app too, so you can use it
+								on your phone more easily
 							</p>
 						</div>
 						<div className='col-span-3 gap-4 grid grid-cols-4'>
