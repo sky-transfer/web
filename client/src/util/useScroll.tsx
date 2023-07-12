@@ -21,3 +21,5 @@ function useScroll(ref: React.MutableRefObject<HTMLDivElement>) {
 
 	return { scrollY, scrollX };
 }
+
+export default useScroll;
