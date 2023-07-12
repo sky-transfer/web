@@ -107,7 +107,7 @@ export default function Home() {
 							<div className='h-full p-8 bg-[#333] border-white border-opacity-10 border rounded-lg text-left flex flex-col items-start justify-center group'>
 								<IconBrandGithub className='text-[#ccf] group-hover:drop-shadow-glow transition-all duration-100 w-12 h-auto' />
 								<div className='my-2' />
-								<h2 className='text-xl'>Hosted via GitHub</h2>
+								<h2 className='text-xl'>Hosted on GitHub</h2>
 								<p className='opacity-80 w-3/4'>
 									We use GitHub for our source code management
 								</p>
