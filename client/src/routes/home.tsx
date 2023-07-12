@@ -13,6 +13,7 @@ import {
 	IconRocket,
 	IconServer,
 } from '@tabler/icons-react';
+import Footer from '../components/Footer';
 
 export default function Home() {
 	const [enableBg, setEnableBg] = useState(false);
