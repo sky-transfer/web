@@ -158,6 +158,7 @@ export default function Home() {
 							<IconBrandAndroid /> Android App
 						</button>
 					</div>
+					<Footer />
 				</div>
 			</div>
 		</div>
