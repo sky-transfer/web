@@ -1,9 +1,7 @@
 import useScroll from '../util/useScroll';
 
-export default function Banner(props: {
-	scrollComponent?: React.RefObject<HTMLDivElement>;
-}) {
-	const { scrollY } = useScroll(props.scrollComponent);
+export default function Banner(props: { scrollY: number }) {
+	const { scrollY } = props;
 
 	return (
 		<div className='bg-[#111111] w-full h-screen relative overflow-hidden'>
@@ -16,7 +14,11 @@ export default function Banner(props: {
 				<div
 					className='text-center'
 					style={{
-						transform: `translateY(${scrollY / 4}px)`,
+						transform: `translateY(${
+							scrollY < window.innerHeight
+								? scrollY / 3
+								: window.innerHeight / 3
+						}px)`,
 					}}
 				>
 					<h1 className='text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight'>
