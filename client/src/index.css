@@ -12,7 +12,7 @@ h1 {
 }
 
 body {
-	@apply overflow-hidden;
+	@apply overflow-hidden bg-[#111111];
 }
 
 .btn-secondary {
