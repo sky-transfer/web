@@ -17,11 +17,14 @@ export default function Home() {
 	const [enableBg, setEnableBg] = useState(false);
 	const mainComponent = useRef<HTMLDivElement>(null);
 
+	const [scrollY, setScrollY] = useState(0);
+
 	useEffect(() => {
 		if (!mainComponent.current) return;
 		mainComponent.current.addEventListener('scroll', onScroll);
 
 		function onScroll() {
+			setScrollY(mainComponent.current!.scrollTop);
 			if (mainComponent.current!.scrollTop > window.innerHeight / 3) {
 				setEnableBg(true);
 			} else {
@@ -48,7 +51,7 @@ export default function Home() {
 					Skytransfer
 				</p>
 			</div>
-			<Banner scrollComponent={mainComponent} />
+			<Banner scrollY={scrollY} />
 			<div className='bg-[#222222]'>
 				<div className='container mx-auto p-2'>
 					<div
