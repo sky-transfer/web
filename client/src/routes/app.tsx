@@ -3,6 +3,8 @@ import Footer from '../components/Footer';
 import { QRCodeCanvas } from 'qrcode.react';
 import useSocket from '../util/useSocket';
 import moment from 'moment';
+import { IconX } from '@tabler/icons-react';
+import { useNavigate } from 'react-router-dom';
 
 export default function App() {
 	const [code, setCode] = useState('');
@@ -12,6 +14,8 @@ export default function App() {
 	const [type, setType] = useState<'receiver' | 'sender'>();
 
 	const [inputText, setInputText] = useState('');
+
+	const navigate = useNavigate();
 
 	const socket = useSocket();
 
@@ -37,7 +41,6 @@ export default function App() {
 		});
 
 		socket.on('end-disconnected', () => {
-			console.log('Disconnect');
 			setCode('');
 			setDeviceID('');
 			setTexts([]);
@@ -50,6 +53,25 @@ export default function App() {
 	return (
 		<div>
 			<div className='flex min-h-screen'>
+				<button className='absolute top-4 left-4'>
+					<IconX
+						className='text-[#ccf] hover:text-[#ff3434] transition-all duration-100 cursor-pointer active:scale-95'
+						onClick={() => {
+							if (!type) {
+								socket.disconnect();
+								navigate('/');
+								return;
+							}
+
+							setCode('');
+							setDeviceID('');
+							setTexts([]);
+							setType(undefined);
+
+							socket.disconnect();
+						}}
+					/>
+				</button>
 				<div className='container mx-auto p-2'>
 					{type ? (
 						type == 'sender' ? (
