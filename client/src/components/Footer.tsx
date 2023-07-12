@@ -7,7 +7,7 @@ export default function Footer() {
 				</h1>
 				<p>©️ 2023 RedCrafter07</p>
 			</div>
-			<div className='my-auto'>
+			<div className='my-auto lg:my-0'>
 				<p className='text-[#ccf] font-bold text-xl'>Important links</p>
 				<div className='my-2' />
 				<a className='underline text-white' href='/'>
