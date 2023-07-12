@@ -104,7 +104,7 @@ export default function App() {
 								<div className='my-2' />
 								<p>{code}</p>
 							</div>
-							<div className='flex flex-row lg:flex-col h-full items-center gap-4'>
+							<div className='flex flex-row lg:flex-col w-full h-auto lg:w-auto lg:h-full items-center gap-4'>
 								<div className='h-px w-full lg:h-full lg:w-px bg-white opacity-10 flex-1' />
 								<p>OR</p>
 								<div className='h-px w-full lg:h-full lg:w-px bg-white opacity-10 flex-1' />
