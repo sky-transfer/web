@@ -4,7 +4,6 @@ import {
 	IconBrandDocker,
 	IconBrandGithub,
 	IconBrandReact,
-	IconBrandReactNative,
 	IconCode,
 	IconDeviceDesktop,
 	IconDeviceMobile,
