@@ -94,7 +94,8 @@ export default function Home() {
 								<div className='my-2' />
 								<h2 className='text-xl'>Built with React</h2>
 								<p className='opacity-80 w-3/4'>
-									We use React for our web interface
+									We use React for our web interface and React Native for our
+									mobile app
 								</p>
 							</div>
 							<div className='h-full p-8 bg-[#333] border-white border-opacity-10 border rounded-lg text-left flex flex-col items-start justify-center group'>
@@ -102,7 +103,7 @@ export default function Home() {
 								<div className='my-2' />
 								<h2 className='text-xl'>Hosted on GitHub</h2>
 								<p className='opacity-80 w-3/4'>
-									We use GitHub for our source code management
+									We use GitHub for our source code management and for our CD
 								</p>
 							</div>
 							<div className='h-full p-8 bg-[#333] border-white border-opacity-10 border rounded-lg text-left flex flex-col items-start justify-center group'>
