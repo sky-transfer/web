@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 
-function useScroll(ref?: React.MutableRefObject<HTMLDivElement>) {
+function useScroll(ref?: React.RefObject<HTMLDivElement>) {
 	const [scrollY, setScrollY] = useState(0);
 	const [scrollX, setScrollX] = useState(0);
 
