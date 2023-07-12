@@ -8,6 +8,7 @@ h1 {
 
 * {
 	font-family: 'Figtree';
+	@apply selection:bg-[#333] selection:text-white selection:opacity-100;
 }
 
 body {
