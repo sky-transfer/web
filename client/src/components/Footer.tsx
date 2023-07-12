@@ -19,6 +19,7 @@ export default function Footer() {
 				<a
 					className='underline text-white'
 					href='https://github.com/sky-transfer'
+					target='_blank'
 				>
 					<p>GitHub</p>
 				</a>
