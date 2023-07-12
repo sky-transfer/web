@@ -41,6 +41,9 @@ dependencies:
   html-webpack-plugin:
     specifier: ^5.5.0
     version: 5.5.0(webpack@5.74.0)
+  moment:
+    specifier: ^2.29.4
+    version: 2.29.4
   postcss:
     specifier: ^8.4.16
     version: 8.4.16
@@ -2270,6 +2273,10 @@ packages:
 
   /minimist@1.2.6:
     resolution: {integrity: sha512-Jsjnk4bw3YJqYzbdyBiNsPWHPfO++UGG749Cxs6peCu5Xg4nrena6OVxOYxrQTqww0Jmwt+Ref8rggumkTLz9Q==}
+    dev: false
+
+  /moment@2.29.4:
+    resolution: {integrity: sha512-5LC9SOxjSc2HF6vO2CyuTDNivEdoz2IvyJJGj6X8DJ0eFyfszE0QiEd+iXmBvUP3WHxSjFH/vIsA0EN00cgr8w==}
     dev: false
 
   /ms@2.0.0:
