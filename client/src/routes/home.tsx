@@ -149,7 +149,7 @@ export default function Home() {
 					</div>
 					<div className='my-8' />
 					<div className='flex'>
-						<button className='mx-auto rounded-full bg-[#ccf] p-4 text-black active:scale-95 hover:drop-shadow-glow transition-all duration-100 flex flex-row gap-4'>
+						<button className='mx-auto rounded-full bg-[#ccf] p-4 text-black active:scale-95 hover:drop-shadow-glow transition-all duration-100 flex flex-row gap-4 font-bold'>
 							<IconBrandAndroid /> Android App
 						</button>
 					</div>
