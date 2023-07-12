@@ -11,6 +11,11 @@ app.use(express.static(path.join(__dirname, '..', 'client', 'public')));
 
 // Routes
 app.get('/', sendFile);
+
+app.get('/download/android', (req, res) => {
+	res.redirect('https://github.com/sky-transfer/app/releases/latest');
+});
+
 app.get('*', notFound);
 
 app.listen(3000, () => {
