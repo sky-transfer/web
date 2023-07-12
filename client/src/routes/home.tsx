@@ -7,6 +7,7 @@ import {
 	IconBrandReactNative,
 	IconCode,
 	IconDeviceDesktop,
+	IconDeviceMobile,
 	IconLock,
 	IconRocket,
 } from '@tabler/icons-react';
@@ -96,7 +97,7 @@ export default function Home() {
 								</p>
 							</div>
 							<div className='h-full p-8 bg-[#333] border-white border-opacity-10 border rounded-lg text-left flex flex-col items-start justify-center group'>
-								<IconBrandReactNative className='text-[#ccf] group-hover:drop-shadow-glow transition-all duration-100 w-12 h-auto' />
+								<IconDeviceMobile className='text-[#ccf] group-hover:drop-shadow-glow transition-all duration-100 w-12 h-auto' />
 								<div className='my-2' />
 								<h2 className='text-xl'>... and React Native</h2>
 								<p className='opacity-80 w-3/4'>
