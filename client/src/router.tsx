@@ -11,7 +11,6 @@ export default function Router() {
 	return (
 		<>
 			<AnimatePresence initial={false} mode='wait'>
-				{/* Insert your wrappers here. They should go around the <Router /> class. */}
 				<motion.div
 					key={location.pathname}
 					initial={{ opacity: 0 }}
