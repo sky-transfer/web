@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 export default function Footer() {
 	return (
 		<div className='grid grid-cols-1 lg:grid-cols-3 gap-4 p-8 bg-[#111] text-center lg:text-left'>
@@ -10,12 +12,12 @@ export default function Footer() {
 			<div className='my-auto lg:my-0'>
 				<p className='text-[#ccf] font-bold text-xl'>Important links</p>
 				<div className='my-2' />
-				<a className='underline text-white' href='/'>
+				<Link className='underline text-white' to='/'>
 					<p>Home</p>
-				</a>
-				<a className='underline text-white' href='/app'>
+				</Link>
+				<Link className='underline text-white' to='/app'>
 					<p>Web App</p>
-				</a>
+				</Link>
 				<a
 					className='underline text-white'
 					href='https://github.com/sky-transfer'
