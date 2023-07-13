@@ -1,6 +1,6 @@
 export default function Footer() {
 	return (
-		<div className='grid grid-cols-1 lg:grid-cols-3 gap-4 p-2 py-8 bg-[#111] text-center lg:text-left'>
+		<div className='grid grid-cols-1 lg:grid-cols-3 gap-4 p-8 bg-[#111] text-center lg:text-left'>
 			<div className='my-auto'>
 				<h1 className='text-3xl font-black uppercase tracking-widest text-[#ccf]'>
 					Skytransfer
