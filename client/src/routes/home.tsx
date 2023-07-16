@@ -18,6 +18,7 @@ import { useNavigate } from 'react-router-dom';
 export default function Home() {
 	const [enableBg, setEnableBg] = useState(false);
 	const mainComponent = useRef<HTMLDivElement>(null);
+	const whatRef = useRef<HTMLDivElement>(null);
 
 	const navigate = useNavigate();
 
@@ -56,6 +57,30 @@ export default function Home() {
 				</p>
 			</div>
 			<Banner scrollY={scrollY} />
+			<div
+				className='h-screen grid place-items-center text-center'
+				ref={whatRef}
+				id='what'
+			>
+				<h3
+					className='text-xl md:text-3xl lg:text-5xl -tracking-wider'
+					style={{
+						transform: `translateY(${
+							Math.min(
+								scrollY - (whatRef.current?.scrollHeight || 0),
+								whatRef.current?.clientHeight || 0,
+							) * -0.25
+						}px)`,
+						filter: `drop-shadow(0px 0px ${
+							Math.min(scrollY - (whatRef.current?.scrollHeight || 0), 36) * 0.1
+						}px #ccf)`,
+					}}
+				>
+					Sky Transfer is a tool for
+					<br />
+					sharing text between two devices
+				</h3>
+			</div>
 			<div className='bg-[#222222]'>
 				<div className='container mx-auto p-2'>
 					<div
