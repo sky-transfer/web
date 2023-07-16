@@ -1,7 +1,10 @@
 import { IconRocket } from '@tabler/icons-react';
+import { useNavigate } from 'react-router-dom';
 
 export default function Banner(props: { scrollY: number }) {
 	const { scrollY } = props;
+
+	const navigate = useNavigate();
 
 	return (
 		<div className='bg-[#111111] w-full h-screen relative overflow-hidden'>
@@ -29,9 +32,10 @@ export default function Banner(props: { scrollY: number }) {
 					<button
 						className='mx-auto btn-primary flex flex-row gap-4 font-bold'
 						onClick={() => {
-							const start = document.getElementById('start');
+							/* const start = document.getElementById('start');
 							if (!start) return;
-							start.scrollIntoView({ behavior: 'smooth' });
+							start.scrollIntoView({ behavior: 'smooth' }); */
+							navigate('/app');
 						}}
 					>
 						<IconRocket /> Get me started!
