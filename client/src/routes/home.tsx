@@ -44,13 +44,13 @@ export default function Home() {
 
 	return (
 		<div
-			className='bg-[#111111] text-white min-h-screen overflow-x-hidden max-h-screen max-w-full overflow-y-visible'
+			className='bg-[#111111] text-white min-h-screen overflow-x-hidden max-h-screen w-full overflow-y-visible'
 			ref={mainComponent}
 		>
 			<div
-				className={`h-16 w-[calc(100%-10px)] bg-[#111] backdrop-blur-sm ${
-					enableBg ? 'bg-opacity-25' : 'bg-opacity-0'
-				} fixed top-0 left-0 p-2 flex z-50 transition-all duration-100`}
+				className={`h-16 w-full bg-[#111] backdrop-blur-sm ${
+					enableBg ? 'bg-opacity-50 rounded-lg m-2' : 'bg-opacity-0'
+				} fixed top-0 left-0 w-[calc(100%-20px)] p-4 flex z-50 transition-all duration-200`}
 			>
 				<p className='uppercase text-2xl my-auto font-black tracking-widest'>
 					Skytransfer
