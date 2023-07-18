@@ -16,7 +16,7 @@ import Footer from '../components/Footer';
 import { useNavigate } from 'react-router-dom';
 
 export default function Home() {
-	const [enableBg, setEnableBg] = useState(false);
+	const [navDetach, setNavDetach] = useState(false);
 	const mainComponent = useRef<HTMLDivElement>(null);
 	const whatRef = useRef<HTMLDivElement>(null);
 
@@ -31,9 +31,9 @@ export default function Home() {
 		function onScroll() {
 			setScrollY(mainComponent.current!.scrollTop);
 			if (mainComponent.current!.scrollTop > window.innerHeight / 2) {
-				setEnableBg(true);
+				setNavDetach(true);
 			} else {
-				setEnableBg(false);
+				setNavDetach(false);
 			}
 		}
 
@@ -49,7 +49,7 @@ export default function Home() {
 		>
 			<div
 				className={`h-16 w-full bg-[#111] border border-white backdrop-blur-sm ${
-					enableBg
+					navDetach
 						? 'bg-opacity-50 rounded-lg m-2 border-opacity-5'
 						: 'bg-opacity-0 border-opacity-0'
 				} fixed top-0 left-0 w-[calc(100%-20px)] p-4 flex z-50 transition-all duration-200`}
