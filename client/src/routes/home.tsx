@@ -8,6 +8,7 @@ import {
 	IconCode,
 	IconDeviceDesktop,
 	IconLock,
+	IconMessage,
 	IconRocket,
 	IconServer,
 	IconWorld,
@@ -60,10 +61,29 @@ export default function Home() {
 			</div>
 			<Banner scrollY={scrollY} />
 			<div
-				className='h-screen grid place-items-center text-center'
+				className='h-screen grid place-items-center text-center relative'
 				ref={whatRef}
 				id='what'
 			>
+				<div className='absolute top-8 left-8 flex h-full'>
+					<div
+						className='my-auto'
+						style={{
+							transform: `translateY(${
+								Math.max(
+									scrollY - (whatRef.current?.scrollHeight || 0),
+									whatRef.current?.clientHeight || 0,
+								) * 0.2
+							}px)`,
+							filter: `blur(${Math.max(
+								5 - (scrollY - (whatRef.current?.scrollHeight || 0)) / 5,
+								0,
+							)}px)`,
+						}}
+					>
+						<IconMessage size={69} className='text-[#ccf]' />
+					</div>
+				</div>
 				<h3
 					className='text-xl md:text-3xl lg:text-5xl -tracking-wider'
 					style={{
