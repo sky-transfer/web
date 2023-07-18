@@ -30,7 +30,7 @@ export default function Home() {
 
 		function onScroll() {
 			setScrollY(mainComponent.current!.scrollTop);
-			if (mainComponent.current!.scrollTop > window.innerHeight / 3) {
+			if (mainComponent.current!.scrollTop > window.innerHeight / 2) {
 				setEnableBg(true);
 			} else {
 				setEnableBg(false);
