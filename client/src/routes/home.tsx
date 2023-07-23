@@ -142,7 +142,7 @@ export default function Home() {
 							],
 							[
 								"You're done?",
-								'Simply close the tab or click on the X button to close the interface.',
+								'Simply close the tab or click on the X button to close the interface. No data is stored on our servers during this process, only both ends store data temporarily.',
 							],
 						].map((item, i) => {
 							return (
