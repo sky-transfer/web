@@ -123,6 +123,16 @@ export default function Home() {
 					sharing text between two devices
 				</h3>
 			</div>
+
+			<div className='min-h-screen bg-[#222]'>
+				<div className='container mx-auto px-2 py-16'>
+					<div className='border border-white border-opacity-10 rounded-full h-32 w-32 text-3xl grid place-items-center relative'>
+						<p className='text-transparent bg-gradient-to-br from-[#ccf] to-[#9090EB] bg-clip-text font-extrabold'>
+							1
+						</p>
+					</div>
+				</div>
+			</div>
 			<div className='bg-[#222222]'>
 				<div className='container mx-auto p-2'>
 					<div
