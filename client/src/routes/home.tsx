@@ -85,24 +85,6 @@ export default function Home() {
 						<IconMessage size={69} className='text-[#ccf]' />
 					</div>
 				</div>
-				<h3
-					className='text-xl md:text-3xl lg:text-5xl -tracking-wider'
-					style={{
-						transform: `translateY(${
-							Math.min(
-								scrollY - (whatRef.current?.scrollHeight || 0),
-								whatRef.current?.clientHeight || 0,
-							) * -0.25
-						}px)`,
-						filter: `drop-shadow(0px 0px ${
-							Math.min(scrollY - (whatRef.current?.scrollHeight || 0), 36) * 0.1
-						}px #ccf)`,
-					}}
-				>
-					Sky Transfer is a tool for
-					<br />
-					sharing text between two devices
-				</h3>
 				<div className='absolute top-8 right-8 flex h-full'>
 					<div
 						className='my-auto'
@@ -122,6 +104,24 @@ export default function Home() {
 						<IconLink size={69} className='text-[#ccf]' />
 					</div>
 				</div>
+				<h3
+					className='text-3xl lg:text-5xl -tracking-wider'
+					style={{
+						transform: `translateY(${
+							Math.min(
+								scrollY - (whatRef.current?.scrollHeight || 0),
+								whatRef.current?.clientHeight || 0,
+							) * -0.25
+						}px)`,
+						filter: `drop-shadow(0px 0px ${
+							Math.min(scrollY - (whatRef.current?.scrollHeight || 0), 36) * 0.1
+						}px #ccf)`,
+					}}
+				>
+					Sky Transfer is a tool for
+					<br />
+					sharing text between two devices
+				</h3>
 			</div>
 			<div className='bg-[#222222]'>
 				<div className='container mx-auto p-2'>
