@@ -7,6 +7,7 @@ import {
 	IconBrandReact,
 	IconCode,
 	IconDeviceDesktop,
+	IconLink,
 	IconLock,
 	IconMessage,
 	IconRocket,
@@ -102,6 +103,25 @@ export default function Home() {
 					<br />
 					sharing text between two devices
 				</h3>
+				<div className='absolute top-8 right-8 flex h-full'>
+					<div
+						className='my-auto'
+						style={{
+							transform: `translateY(${
+								Math.max(
+									scrollY - (whatRef.current?.scrollHeight || 0),
+									whatRef.current?.clientHeight || 0,
+								) * -0.1
+							}px)`,
+							filter: `blur(${Math.max(
+								5 - (scrollY - (whatRef.current?.scrollHeight || 0)) / 5,
+								0,
+							)}px)`,
+						}}
+					>
+						<IconLink size={69} className='text-[#ccf]' />
+					</div>
+				</div>
 			</div>
 			<div className='bg-[#222222]'>
 				<div className='container mx-auto p-2'>
