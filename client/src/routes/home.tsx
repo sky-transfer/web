@@ -126,20 +126,49 @@ export default function Home() {
 
 			<div className='min-h-screen bg-[#222]'>
 				<div className='container mx-auto px-2 py-16'>
-					<div className='border border-white border-opacity-10 rounded-full h-32 w-32 text-3xl grid place-items-center relative'>
-						<p className='text-transparent bg-gradient-to-br from-[#ccf] to-[#9090EB] bg-clip-text font-extrabold'>
-							1
-						</p>
+					<div className='flex flex-col gap-8'>
+						{[
+							[
+								'Open the app',
+								'... on both devices. One of which receives the text, while the other one sends it.',
+							],
+							[
+								'Type in the code',
+								'The receiving devices "logs in" with the code.',
+							],
+							[
+								'Transfer!',
+								'Both devices get to the transfer screen, where the text is sent or received.',
+							],
+							[
+								"You're done?",
+								'Simply close the tab or click on the X button to close the interface.',
+							],
+						].map((item, i) => {
+							return (
+								<div className='flex flex-row gap-4 items-center'>
+									<div className='border border-white border-opacity-10 rounded-full h-32 w-32 text-3xl grid place-items-center relative'>
+										<p className='text-transparent bg-gradient-to-br from-[#ccf] to-[#9090EB] bg-clip-text font-extrabold'>
+											{i + 1}
+										</p>
+									</div>
+									<div>
+										<h3 className='text-xl font-bold'>{item[0]}</h3>
+										<p className='opacity-80'>{item[1]}</p>
+									</div>
+								</div>
+							);
+						})}
 					</div>
 				</div>
 			</div>
-			<div className='bg-[#222222]'>
+			<div className='bg-[#333]'>
 				<div className='container mx-auto p-2'>
 					<div
 						className='grid grid-cols-1 lg:grid-cols-3 lg:grid-rows-2 gap-4 w-full h-full'
 						id='features'
 					>
-						<div className='h-full p-8 bg-[#333] border-white border-opacity-10 border rounded-lg text-left flex flex-col items-start justify-center group'>
+						<div className='h-full p-8 bg-[#222] border-white border-opacity-10 border rounded-lg text-left flex flex-col items-start justify-center group'>
 							<IconRocket className='w-12 h-auto text-[#ccf] group-hover:drop-shadow-glow-small transition-all duration-100' />
 							<div className='my-2' />
 							<h2 className='text-xl'>Start fast</h2>
@@ -147,7 +176,7 @@ export default function Home() {
 								To get started, simply scan a QR Code on a device
 							</p>
 						</div>
-						<div className='h-full p-8 bg-[#333] border-white border-opacity-10 border rounded-lg text-left flex flex-col items-start justify-center group'>
+						<div className='h-full p-8 bg-[#222] border-white border-opacity-10 border rounded-lg text-left flex flex-col items-start justify-center group'>
 							<IconLock className='w-12 h-auto text-[#ccf] group-hover:drop-shadow-glow-small transition-all duration-100' />
 							<div className='my-2' />
 							<h2 className='text-xl'>No data storage</h2>
@@ -155,7 +184,7 @@ export default function Home() {
 								We don't store any but the required data
 							</p>
 						</div>
-						<div className='lg:row-span-2 p-8 bg-[#333] border-white border-opacity-10 border rounded-lg flex flex-col justify-center h-full group'>
+						<div className='lg:row-span-2 p-8 bg-[#222] border-white border-opacity-10 border rounded-lg flex flex-col justify-center h-full group'>
 							<IconCode className='w-12 h-auto text-[#ccf] group-hover:drop-shadow-glow-small transition-all duration-100' />
 							<div className='my-2' />
 							<h2 className='text-xl'>We're open source!</h2>
@@ -165,7 +194,7 @@ export default function Home() {
 								on our GitHub page. Feel free to contribute to this project!
 							</p>
 						</div>
-						<div className='lg:col-span-2 h-full p-8 bg-[#333] border-white border-opacity-10 border rounded-lg text-left flex flex-col items-start justify-center group'>
+						<div className='lg:col-span-2 h-full p-8 bg-[#222] border-white border-opacity-10 border rounded-lg text-left flex flex-col items-start justify-center group'>
 							<IconDeviceDesktop className='w-12 h-auto text-[#ccf] group-hover:drop-shadow-glow-small transition-all duration-100' />
 							<div className='my-2' />
 							<h2 className='text-xl'>Cross-Platform</h2>
@@ -177,7 +206,7 @@ export default function Home() {
 							</p>
 						</div>
 						<div className='lg:col-span-3 gap-4 grid grid-cols-1 lg:grid-cols-4'>
-							<div className='h-full p-8 bg-[#333] border-white border-opacity-10 border rounded-lg text-left flex flex-col items-start justify-center group'>
+							<div className='h-full p-8 bg-[#222] border-white border-opacity-10 border rounded-lg text-left flex flex-col items-start justify-center group'>
 								<IconBrandReact className='text-[#ccf] group-hover:drop-shadow-glow-small transition-all duration-100 w-12 h-auto' />
 								<div className='my-2' />
 								<h2 className='text-xl'>Built with React</h2>
@@ -186,7 +215,7 @@ export default function Home() {
 									mobile app
 								</p>
 							</div>
-							<div className='h-full p-8 bg-[#333] border-white border-opacity-10 border rounded-lg text-left flex flex-col items-start justify-center group'>
+							<div className='h-full p-8 bg-[#222] border-white border-opacity-10 border rounded-lg text-left flex flex-col items-start justify-center group'>
 								<IconBrandGithub className='text-[#ccf] group-hover:drop-shadow-glow-small transition-all duration-100 w-12 h-auto' />
 								<div className='my-2' />
 								<h2 className='text-xl'>Hosted on GitHub</h2>
@@ -194,7 +223,7 @@ export default function Home() {
 									We use GitHub for our source code management and for our CD
 								</p>
 							</div>
-							<div className='h-full p-8 bg-[#333] border-white border-opacity-10 border rounded-lg text-left flex flex-col items-start justify-center group'>
+							<div className='h-full p-8 bg-[#222] border-white border-opacity-10 border rounded-lg text-left flex flex-col items-start justify-center group'>
 								<IconBrandDocker className='text-[#ccf] group-hover:drop-shadow-glow-small transition-all duration-100 w-12 h-auto' />
 								<div className='my-2' />
 								<h2 className='text-xl'>Running with Docker</h2>
@@ -203,7 +232,7 @@ export default function Home() {
 									our server more secure and easier to deploy
 								</p>
 							</div>
-							<div className='h-full p-8 bg-[#333] border-white border-opacity-10 border rounded-lg text-left flex flex-col items-start justify-center group'>
+							<div className='h-full p-8 bg-[#222] border-white border-opacity-10 border rounded-lg text-left flex flex-col items-start justify-center group'>
 								<IconServer className='text-[#ccf] group-hover:drop-shadow-glow-small transition-all duration-100 w-12 h-auto' />
 								<div className='my-2' />
 								<h2 className='text-xl'>
