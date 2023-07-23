@@ -123,10 +123,10 @@ export default function Home() {
 					sharing text between two devices
 				</h3>
 			</div>
-
+			<div className='w-full h-32 bg-gradient-to-b from-transparent to-[#222]' />
 			<div className='min-h-screen bg-[#222]'>
 				<div className='container mx-auto px-2 py-16'>
-					<div className='flex flex-col gap-8'>
+					<div className='flex flex-col gap-4'>
 						{[
 							[
 								'Open the app',
@@ -162,6 +162,7 @@ export default function Home() {
 					</div>
 				</div>
 			</div>
+			<div className='w-full h-32 bg-gradient-to-b from-[#222] to-[#333]' />
 			<div className='bg-[#333]'>
 				<div className='container mx-auto p-2'>
 					<div
