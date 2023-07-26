@@ -38,6 +38,7 @@ export default function Banner(props: { scrollY: number }) {
 					<h1 className='text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight'>
 						Text sharing has never been easier
 					</h1>
+					<div className='h-2' />
 					<p className='text-xl md:text-2xl lg:text-3xl'>Meet Sky Transfer</p>
 					<div className='my-8' />
 					<button
