@@ -21,7 +21,7 @@ export default function Router() {
 					}}
 					exit={{ opacity: 0, y: -100 }}
 					transition={{
-						duration: 0.2,
+						duration: 0.3,
 						ease: [0.39, 0, 1, 0.54],
 					}}
 				>
