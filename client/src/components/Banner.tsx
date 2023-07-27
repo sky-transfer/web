@@ -1,4 +1,5 @@
 import { IconRocket } from '@tabler/icons-react';
+import { AnimatePresence, motion } from 'framer-motion';
 import { useNavigate } from 'react-router-dom';
 import useCursor from '../util/useCursor';
 
@@ -35,23 +36,72 @@ export default function Banner(props: { scrollY: number }) {
 						}px)`,
 					}}
 				>
-					<h1 className='text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight'>
-						Text sharing has never been easier
-					</h1>
-					<div className='h-2' />
-					<p className='text-xl md:text-2xl lg:text-3xl'>Meet Sky Transfer</p>
-					<div className='my-8' />
-					<button
-						className='mx-auto btn-primary flex flex-row gap-4 font-bold'
-						onClick={() => {
-							/* const start = document.getElementById('start');
+					<AnimatePresence>
+						<motion.h1
+							initial={{
+								opacity: 0,
+								y: 20,
+							}}
+							animate={{
+								opacity: 1,
+								y: 0,
+							}}
+							transition={{
+								duration: 0.8,
+								ease: [0.17, 0.67, 0.48, 0.98],
+							}}
+							className='text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight'
+						>
+							Text sharing has never been easier
+						</motion.h1>
+						<div className='h-2' />
+						<motion.p
+							initial={{
+								opacity: 0,
+								y: 20,
+							}}
+							animate={{
+								opacity: 1,
+								y: 0,
+							}}
+							transition={{
+								delay: 0.1,
+								duration: 0.8,
+								ease: [0.17, 0.67, 0.48, 0.98],
+							}}
+							className='text-xl md:text-2xl lg:text-3xl'
+						>
+							Meet Sky Transfer
+						</motion.p>
+						<div className='my-8' />
+						<motion.div
+							initial={{
+								opacity: 0,
+								y: 20,
+							}}
+							animate={{
+								opacity: 1,
+								y: 0,
+							}}
+							transition={{
+								delay: 0.3,
+								duration: 0.8,
+								ease: [0.17, 0.67, 0.48, 0.98],
+							}}
+						>
+							<button
+								className='mx-auto btn-primary flex flex-row gap-4 font-bold'
+								onClick={() => {
+									/* const start = document.getElementById('start');
 							if (!start) return;
 							start.scrollIntoView({ behavior: 'smooth' }); */
-							navigate('/app');
-						}}
-					>
-						<IconRocket /> Get me started!
-					</button>
+									navigate('/app');
+								}}
+							>
+								<IconRocket /> Get me started!
+							</button>
+						</motion.div>
+					</AnimatePresence>
 				</div>
 			</div>
 		</div>
