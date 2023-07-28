@@ -11,10 +11,12 @@ export default function App() {
 	useEffect(() => {
 		// wait for the font to load
 		document.fonts.ready.then(() => {
-			setLoading(false);
 			setTimeout(() => {
-				setHideBar(true);
-			}, 750);
+				setLoading(false);
+				setTimeout(() => {
+					setHideBar(true);
+				}, 750);
+			}, 100);
 		});
 	}, []);
 
