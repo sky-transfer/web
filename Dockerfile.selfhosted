@@ -11,7 +11,7 @@ RUN npm install -g pnpm
 COPY ./server .
 
 # Install all production dependencies
-RUN pnpm i -P --frozen-lockfile
+RUN pnpm i -P
 
 # Build the application
 RUN pnpm build
