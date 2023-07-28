@@ -17,7 +17,7 @@ export default function App() {
 
 	const navigate = useNavigate();
 
-	const socket = useSocket();
+	const { socket } = useSocket();
 
 	useEffect(() => {
 		socket.on('code', (c: string) => {
