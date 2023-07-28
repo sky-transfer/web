@@ -1,5 +1,5 @@
-# Retmod Template
-This is a retmod template. Beside the basic retmod "additions", this template also contains the following features:
-- An optimized config and speed improvements
+# Sky Transfer
 
-For additional information about Retmod, look [here](https://retmod.r07.dev)
+Welcome to Sky Transfer!
+
+_This Readme is work in progress._
