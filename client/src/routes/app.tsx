@@ -89,6 +89,7 @@ export default function App() {
 							The URL of the Sky Transfer Server. Change if you want to use your
 							self hosted server.
 						</p>
+						<p className='opacity-50'>Current: {url}</p>
 						<form
 							onSubmit={(e) => {
 								e.preventDefault();
