@@ -6,6 +6,7 @@ import moment from 'moment';
 import { IconSettings, IconX } from '@tabler/icons-react';
 import { useNavigate } from 'react-router-dom';
 import useLocalStorage from '../util/useLocalStorage';
+import axios from 'axios';
 
 export default function App() {
 	const [code, setCode] = useState('');
@@ -98,8 +99,19 @@ export default function App() {
 									'url',
 								) as string;
 
-								setURL(url);
-								changeURL(url);
+								axios.get(`${url}/.skytransfer/isHost`).then((res) => {
+									try {
+										const data = JSON.parse(res.data);
+
+										if (data.host === true) {
+											setURL(url);
+											changeURL(url);
+										}
+									} catch (e) {
+										alert('This is not a Sky Transfer Server!');
+										return;
+									}
+								});
 							}}
 						>
 							<div className='flex flex-row'>
