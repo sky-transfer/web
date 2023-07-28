@@ -4,6 +4,9 @@ import chalk from 'chalk';
 import { createServer } from 'http';
 import { Server } from 'socket.io';
 
+if (process.env.SELF_HOSTED)
+	console.log(chalk.yellow('[SERVER]: Welcome to Sky Transfer self hosted!'));
+
 const app = express();
 const server = createServer(app);
 
@@ -79,7 +82,8 @@ app.use(express.static(path.join(__dirname, '..', 'client', 'public')));
 // API
 
 // Routes
-app.get('/', sendFile);
+if (!process.env.SELF_HOSTED) app.get('/', sendFile);
+else app.get('/', (_, res) => res.redirect('/app'));
 app.get('/app', sendFile);
 
 app.get('/download/android', (req, res) => {
