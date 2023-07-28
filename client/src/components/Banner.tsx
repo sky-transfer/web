@@ -19,6 +19,31 @@ const item = {
 	show: { opacity: 1 },
 };
 
+const textContainer: Record<string, TargetAndTransition> = {
+	hidden: { opacity: 0 },
+	show: {
+		opacity: 1,
+		transition: {
+			staggerChildren: 0.2,
+		},
+	},
+};
+
+const textItem = {
+	hidden: {
+		opacity: 0,
+		y: 20,
+	},
+	show: {
+		opacity: 1,
+		y: 0,
+		transition: {
+			duration: 0.8,
+			ease: [0.17, 0.67, 0.48, 0.98],
+		},
+	},
+};
+
 export default function Banner(props: { scrollY: number }) {
 	const { scrollY } = props;
 	const { x, y } = useCursor();
@@ -70,69 +95,38 @@ export default function Banner(props: { scrollY: number }) {
 					}}
 				>
 					<AnimatePresence>
-						<motion.h1
-							initial={{
-								opacity: 0,
-								y: 20,
-							}}
-							animate={{
-								opacity: 1,
-								y: 0,
-							}}
-							transition={{
-								duration: 0.8,
-								ease: [0.17, 0.67, 0.48, 0.98],
-							}}
-							className='text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight'
-						>
-							Text sharing has never been easier
-						</motion.h1>
-						<div className='h-2' />
-						<motion.p
-							initial={{
-								opacity: 0,
-								y: 20,
-							}}
-							animate={{
-								opacity: 1,
-								y: 0,
-							}}
-							transition={{
-								delay: 0.1,
-								duration: 0.8,
-								ease: [0.17, 0.67, 0.48, 0.98],
-							}}
-							className='text-xl md:text-2xl lg:text-3xl'
-						>
-							Meet Sky Transfer
-						</motion.p>
-						<div className='my-8' />
 						<motion.div
-							initial={{
-								opacity: 0,
-								y: 20,
-							}}
-							animate={{
-								opacity: 1,
-								y: 0,
-							}}
-							transition={{
-								delay: 0.3,
-								duration: 0.8,
-								ease: [0.17, 0.67, 0.48, 0.98],
-							}}
+							variants={textContainer}
+							initial='hidden'
+							animate='show'
 						>
-							<button
-								className='mx-auto btn-primary flex flex-row gap-4 font-bold'
-								onClick={() => {
-									/* const start = document.getElementById('start');
+							<motion.h1
+								variants={textItem}
+								className='text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight'
+							>
+								Text sharing has never been easier
+							</motion.h1>
+							<div className='h-2' />
+							<motion.p
+								variants={textItem}
+								className='text-xl md:text-2xl lg:text-3xl'
+							>
+								Meet Sky Transfer
+							</motion.p>
+							<div className='my-8' />
+							<motion.div variants={textItem}>
+								<button
+									className='mx-auto btn-primary flex flex-row gap-4 font-bold'
+									onClick={() => {
+										/* const start = document.getElementById('start');
 							if (!start) return;
 							start.scrollIntoView({ behavior: 'smooth' }); */
-									navigate('/app');
-								}}
-							>
-								<IconRocket /> Get me started!
-							</button>
+										navigate('/app');
+									}}
+								>
+									<IconRocket /> Get me started!
+								</button>
+							</motion.div>
 						</motion.div>
 					</AnimatePresence>
 				</div>
