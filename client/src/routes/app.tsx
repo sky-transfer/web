@@ -96,17 +96,19 @@ export default function App() {
 									changeURL(url);
 								}}
 							>
-								<input
-									name='url'
-									type='text'
-									className='w-full p-2 focus:outline-none border-2 border-white border-opacity-10 placeholder:text-white focus:border-opacity-30 placeholder:opacity-50 bg-[#111] rounded-lg transition-all duration-100'
-									placeholder='https://sky-transfer.redcrafter07.de'
-									required
-								/>
+								<div className='flex flex-row'>
+									<input
+										name='url'
+										type='text'
+										className='w-full p-2 focus:outline-none border-2 border-white border-opacity-10 placeholder:text-white focus:border-opacity-30 placeholder:opacity-50 bg-[#111] rounded-l-lg transition-all duration-100'
+										placeholder='https://sky-transfer.redcrafter07.de'
+										required
+									/>
 
-								<button className='bg-green-500 hover:bg-opacity-75 active:scale-95 py-2 px-4 text-white rounded-full'>
-									<p className='font-bold'>Save</p>
-								</button>
+									<button className='bg-green-500 hover:bg-opacity-75 active:scale-95 py-2 px-4 text-white rounded-r-lg'>
+										<p className='font-bold'>Save</p>
+									</button>
+								</div>
 							</form>
 						</div>
 					</div>
