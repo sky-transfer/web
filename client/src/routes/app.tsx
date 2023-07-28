@@ -60,61 +60,60 @@ export default function App() {
 
 	return (
 		<div className='min-h-screen overflow-x-hidden max-h-screen overflow-y-visible bg-[#222]'>
-			{showSettings && (
-				<div
-					className={`z-[690] absolute top-0 left-0 w-full h-screen ${
-						showSettings
-							? 'backdrop-blur-sm pointer-events-auto'
-							: 'backdrop-blur-0 pointer-events-none'
-					} transition-all duration-200`}
-				>
-					<div className='relative w-full h-full'>
-						<div
-							className='absolute top-0 left-0 w-full h-full'
-							onClick={() => {
-								setShowSettings(false);
+			<div
+				className={`z-[690] absolute top-0 left-0 w-full h-screen ${
+					showSettings
+						? 'backdrop-blur-sm pointer-events-auto'
+						: 'backdrop-blur-0 pointer-events-none'
+				} transition-all duration-200`}
+			>
+				<div className='relative w-full h-full'>
+					<div
+						className='absolute top-0 left-0 w-full h-full'
+						onClick={() => {
+							setShowSettings(false);
+						}}
+					/>
+				</div>
+				<div className='absolute top-0 left-0 w-full h-full flex justify-center items-center pointer-events-none'>
+					<div className='bg-[#333] rounded-lg p-8 pointer-events-auto'>
+						<h1 className='text-[#ccf] font-bold'>Settings</h1>
+						<h3 className='text-xl'>Host URL</h3>
+						<p className='opacity-80'>
+							The URL of the Sky Transfer Server. Change if you want to use your
+							self hosted server.
+						</p>
+						<form
+							onSubmit={(e) => {
+								e.preventDefault();
+
+								const url = new FormData(e.target as HTMLFormElement).get(
+									'url',
+								) as string;
+
+								setURL(url);
+								changeURL(url);
 							}}
-						/>
-					</div>
-					<div className='absolute top-0 left-0 w-full h-full flex justify-center items-center pointer-events-none'>
-						<div className='bg-[#333] rounded-lg p-8 pointer-events-auto'>
-							<h1 className='text-[#ccf] font-bold'>Settings</h1>
-							<h3 className='text-xl'>Host URL</h3>
-							<p className='opacity-80'>
-								The URL of the Sky Transfer Server. Change if you want to use
-								your self hosted server.
-							</p>
-							<form
-								onSubmit={(e) => {
-									e.preventDefault();
+						>
+							<div className='flex flex-row'>
+								<input
+									name='url'
+									type='text'
+									className='w-full p-2 focus:outline-none border-2 border-white border-opacity-10 placeholder:text-white focus:border-opacity-30 placeholder:opacity-50 bg-[#111] rounded-l-lg transition-all duration-100'
+									placeholder='https://sky-transfer.redcrafter07.de'
+									required
+									defaultValue={url}
+								/>
 
-									const url = new FormData(e.target as HTMLFormElement).get(
-										'url',
-									) as string;
-
-									setURL(url);
-									changeURL(url);
-								}}
-							>
-								<div className='flex flex-row'>
-									<input
-										name='url'
-										type='text'
-										className='w-full p-2 focus:outline-none border-2 border-white border-opacity-10 placeholder:text-white focus:border-opacity-30 placeholder:opacity-50 bg-[#111] rounded-l-lg transition-all duration-100'
-										placeholder='https://sky-transfer.redcrafter07.de'
-										required
-										defaultValue={url}
-									/>
-
-									<button className='bg-green-600 hover:bg-opacity-75 active:scale-95 py-2 px-4 text-white rounded-r-lg'>
-										<p className='font-bold'>Save</p>
-									</button>
-								</div>
-							</form>
-						</div>
+								<button className='bg-green-600 hover:bg-opacity-75 active:scale-95 py-2 px-4 text-white rounded-r-lg'>
+									<p className='font-bold'>Save</p>
+								</button>
+							</div>
+						</form>
 					</div>
 				</div>
-			)}
+			</div>
+
 			<div className='flex min-h-screen'>
 				<button className='absolute top-4 left-4'>
 					<IconX
