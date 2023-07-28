@@ -51,7 +51,7 @@ export default function Banner(props: { scrollY: number }) {
 	const navigate = useNavigate();
 
 	return (
-		<div className='bg-[#111111] w-full h-screen relative overflow-hidden'>
+		<div className='bg-[#111111] w-full h-screen relative'>
 			<AnimatePresence>
 				<motion.div
 					variants={container}
