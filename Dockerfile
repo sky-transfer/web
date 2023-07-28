@@ -1,6 +1,6 @@
 FROM node:18.6.0
 
-WORKDIR /retmod
+WORKDIR /skytransfer
 
 # Install pnpm
 RUN npm install -g pnpm
