@@ -11,6 +11,11 @@ export default function App() {
 	const [code, setCode] = useState('');
 	const [deviceID, setDeviceID] = useState('');
 
+	const { value: url, setValue: setURL } = useLocalStorage<string>({
+		key: 'url',
+		defaultValue: 'https://sky-transfer.redcrafter07.de',
+	});
+
 	const [texts, setTexts] = useState<{ msg: string; timestamp: number }[]>([]);
 	const [type, setType] = useState<'receiver' | 'sender'>();
 
@@ -18,7 +23,7 @@ export default function App() {
 
 	const navigate = useNavigate();
 
-	const { socket } = useSocket();
+	const { socket } = useSocket(url);
 
 	const [showSettings, setShowSettings] = useState(false);
 
@@ -86,6 +91,8 @@ export default function App() {
 									const url = new FormData(e.target as HTMLFormElement).get(
 										'url',
 									) as string;
+
+									setURL(url);
 								}}
 							>
 								<input
