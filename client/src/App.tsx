@@ -21,7 +21,7 @@ export default function App() {
 	const LoadingComponent = () => {
 		return (
 			<div className='h-screen w-full bg-[#111] grid place-items-center'>
-				<div className='w-1/4 h-auto'>
+				<div className='w-3/4 md:w-1/2 lg:w-1/4 h-auto'>
 					<LogoText />
 				</div>
 			</div>
