@@ -99,19 +99,23 @@ export default function App() {
 									'url',
 								) as string;
 
-								axios.get(`${url}/.skytransfer/isHost`).then((res) => {
-									try {
-										const data = JSON.parse(res.data);
+								axios
+									.get(`${url}/.skytransfer/isHost`)
+									.then((res) => {
+										try {
+											JSON.parse(res.data);
 
-										if (data.host === true) {
 											setURL(url);
 											changeURL(url);
+										} catch (e) {
+											alert('This is not a Sky Transfer Server!');
+											return;
 										}
-									} catch (e) {
+									})
+									.catch((re) => {
+										console.log(re);
 										alert('This is not a Sky Transfer Server!');
-										return;
-									}
-								});
+									});
 							}}
 						>
 							<div className='flex flex-row'>
