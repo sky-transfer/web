@@ -5,6 +5,9 @@ import LogoText from './components/LogoText';
 import { AnimatePresence, motion } from 'framer-motion';
 
 export default function App() {
+	const [fontLoading, setFontLoading] = useState(true);
+	const [pageLoading, setPageLoading] = useState(true);
+
 	const [loading, setLoading] = useState(true);
 	const [hideBar, setHideBar] = useState(false);
 
@@ -12,13 +15,22 @@ export default function App() {
 		// wait for the font to load
 		document.fonts.ready.then(() => {
 			setTimeout(() => {
-				setLoading(false);
+				setFontLoading(false);
 				setTimeout(() => {
 					setHideBar(true);
 				}, 850);
 			}, 100);
 		});
 	}, []);
+
+	useEffect(() => {
+		console.log(fontLoading, pageLoading);
+		if (!fontLoading && !pageLoading) {
+			setTimeout(() => {
+				setLoading(false);
+			}, 100);
+		}
+	}, [fontLoading, pageLoading]);
 
 	const LoadingComponent = () => {
 		return (
@@ -28,6 +40,14 @@ export default function App() {
 				</div>
 			</div>
 		);
+	};
+
+	const SuspenseLoadingComponent = () => {
+		useEffect(() => {
+			return () => setPageLoading(false);
+		}, []);
+
+		return <div className='h-screen w-full bg-[#111]' />;
 	};
 
 	return (
@@ -42,26 +62,26 @@ export default function App() {
 				}}
 			/>
 			<AnimatePresence mode='wait' initial={false}>
-				<motion.div
-					initial={{ opacity: 0 }}
-					animate={{ opacity: 1 }}
-					exit={{ opacity: 0 }}
-					transition={{
-						duration: 0.3,
-					}}
-					key={`${loading ? 'loading' : 'not loading'}`}
-				>
-					{loading ? (
+				{loading && (
+					<motion.div
+						initial={{ opacity: 0 }}
+						animate={{ opacity: 1 }}
+						exit={{ opacity: 0 }}
+						transition={{
+							duration: 0.2,
+						}}
+					>
 						<LoadingComponent />
-					) : (
-						<Suspense fallback={<div className='h-screen w-full bg-[#111]' />}>
-							<BrowserRouter>
-								<Wrappers />
-							</BrowserRouter>
-						</Suspense>
-					)}
-				</motion.div>
+					</motion.div>
+				)}
 			</AnimatePresence>
+			{!fontLoading && (
+				<Suspense fallback={<SuspenseLoadingComponent />}>
+					<BrowserRouter>
+						<Wrappers />
+					</BrowserRouter>
+				</Suspense>
+			)}
 		</>
 	);
 }
