@@ -76,8 +76,12 @@ socket.on('connect', (socket) => {
 });
 
 // FILE SERVING
-app.use(express.static(path.join(__dirname, '..', 'client', 'build')));
-app.use(express.static(path.join(__dirname, '..', 'client', 'public')));
+if (!process.env.SELF_HOSTED)
+	app.use(express.static(path.join(__dirname, '..', 'client', 'build')));
+if (!process.env.SELF_HOSTED)
+	app.use(express.static(path.join(__dirname, '..', 'client', 'public')));
+
+// ^ frontend is not required when self hosting; skipping file serving in this case
 
 // API
 
