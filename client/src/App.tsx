@@ -35,9 +35,11 @@ export default function App() {
 			<div
 				className={`absolute top-0 left-0 h-1 bg-[#ccf] ${
 					loading ? 'w-0' : 'w-full'
-				} ${
-					hideBar ? 'opacity-0' : ''
-				} z-[500] transition-all duration-700 ease-[cubic-bezier(.17,.67,.49,.97)]`}
+				} ${hideBar ? 'opacity-0' : ''} z-[69]`}
+				style={{
+					transition:
+						'opacity 0.25s linear, width 0.75s cubic-bezier(.17,.67,.49,.97)',
+				}}
 			/>
 			<AnimatePresence mode='wait' initial={false}>
 				<motion.div
