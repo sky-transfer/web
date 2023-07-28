@@ -3,6 +3,7 @@ import path from 'path';
 import chalk from 'chalk';
 import { createServer } from 'http';
 import { Server } from 'socket.io';
+import cors from 'cors';
 
 if (process.env.SELF_HOSTED)
 	console.log(chalk.yellow('[SERVER]: Welcome to Sky Transfer self hosted!'));
@@ -84,6 +85,11 @@ if (!process.env.SELF_HOSTED)
 // ^ frontend is not required when self hosting; skipping file serving in this case
 
 // API
+app.use(
+	cors({
+		origin: '*',
+	}),
+);
 
 app.get('/.skytransfer/isHost', (_, res) => {
 	res.json({ host: true, selfHosted: process.env.SELF_HOSTED ? true : false });
