@@ -15,7 +15,7 @@ export default function App() {
 				setLoading(false);
 				setTimeout(() => {
 					setHideBar(true);
-				}, 750);
+				}, 850);
 			}, 100);
 		});
 	}, []);
@@ -37,7 +37,7 @@ export default function App() {
 					loading ? 'w-0' : 'w-full'
 				} ${
 					hideBar ? 'opacity-0' : ''
-				} z-[500] transition-all duration-500 ease-in-out`}
+				} z-[500] transition-all duration-700 ease-[cubic-bezier(.17,.67,.49,.97)]`}
 			/>
 			<AnimatePresence mode='wait' initial={false}>
 				<motion.div
