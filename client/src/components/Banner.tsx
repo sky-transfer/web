@@ -113,7 +113,7 @@ export default function Banner(props: { scrollY: number }) {
 							>
 								Meet Sky Transfer
 							</motion.p>
-							<div className='my-8' />
+							<div className='my-16' />
 							<motion.div variants={textItem}>
 								<button
 									className='mx-auto btn-primary flex flex-row gap-4 font-bold'
