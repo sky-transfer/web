@@ -1,12 +1,24 @@
 import { useState } from 'react';
 import { io } from 'socket.io-client';
 
-export default function useSocket() {
-	const [socket] = useState(
-		io(window.location.origin, {
+export default function useSocket(url: string = window.location.origin) {
+	const [socket, setSocket] = useState(
+		io(url, {
 			transports: ['websocket'],
 		}),
 	);
 
-	return socket;
+	const changeURL = (url: string) => {
+		socket.disconnect();
+
+		setSocket(
+			io(url, {
+				transports: ['websocket'],
+			}),
+		);
+
+		return socket;
+	};
+
+	return { socket, changeURL };
 }
