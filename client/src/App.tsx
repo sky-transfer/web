@@ -61,6 +61,13 @@ export default function App() {
 						'opacity 0.25s linear, width 0.75s cubic-bezier(.17,.67,.49,.97)',
 				}}
 			/>
+			{!fontLoading && (
+				<Suspense fallback={<SuspenseLoadingComponent />}>
+					<BrowserRouter>
+						<Wrappers />
+					</BrowserRouter>
+				</Suspense>
+			)}
 			<AnimatePresence mode='wait' initial={false}>
 				{loading && (
 					<motion.div
@@ -75,13 +82,6 @@ export default function App() {
 					</motion.div>
 				)}
 			</AnimatePresence>
-			{!fontLoading && (
-				<Suspense fallback={<SuspenseLoadingComponent />}>
-					<BrowserRouter>
-						<Wrappers />
-					</BrowserRouter>
-				</Suspense>
-			)}
 		</>
 	);
 }
