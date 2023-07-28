@@ -86,15 +86,17 @@ if (!process.env.SELF_HOSTED)
 // API
 
 // Routes
-if (!process.env.SELF_HOSTED) app.get('/', sendFile);
-else app.get('/', (_, res) => res.redirect('/app'));
-app.get('/app', sendFile);
+if (!process.env.SELF_HOSTED) {
+	app.get('/', sendFile);
 
-app.get('/download/android', (req, res) => {
-	res.redirect('https://github.com/sky-transfer/app/releases/latest');
-});
+	app.get('/app', sendFile);
 
-app.get('*', notFound);
+	app.get('/download/android', (req, res) => {
+		res.redirect('https://github.com/sky-transfer/app/releases/latest');
+	});
+
+	app.get('*', notFound);
+} else app.get('*', (_, res) => res.redirect('https://st.r07.dev/app'));
 
 server.listen(3000, () => {
 	console.log(chalk.green(`[SERVER]: Listening on port 3000`));
