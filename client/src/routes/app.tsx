@@ -23,7 +23,7 @@ export default function App() {
 
 	const navigate = useNavigate();
 
-	const { socket } = useSocket(url);
+	const { socket, changeURL } = useSocket(url);
 
 	const [showSettings, setShowSettings] = useState(false);
 
@@ -93,6 +93,7 @@ export default function App() {
 									) as string;
 
 									setURL(url);
+									changeURL(url);
 								}}
 							>
 								<input
