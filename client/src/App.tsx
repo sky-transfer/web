@@ -77,6 +77,7 @@ export default function App() {
 						transition={{
 							duration: 0.2,
 						}}
+						className='z-[690]'
 					>
 						<LoadingComponent />
 					</motion.div>
