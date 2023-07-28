@@ -50,7 +50,7 @@ export default function Home() {
 			ref={mainComponent}
 		>
 			<div
-				className={`h-16 w-full bg-[#111] border border-white backdrop-blur-sm ${
+				className={`h-16 w-[calc(100%-25px)] bg-[#111] border border-white backdrop-blur-sm ${
 					navDetach
 						? 'bg-opacity-50 rounded-lg m-2 border-opacity-5'
 						: 'bg-opacity-0 border-opacity-0'
