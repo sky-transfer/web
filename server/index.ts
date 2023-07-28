@@ -85,6 +85,10 @@ if (!process.env.SELF_HOSTED)
 
 // API
 
+app.get('/.skytransfer/isHost', (_, res) => {
+	res.json({ host: true, selfHosted: process.env.SELF_HOSTED ? true : false });
+});
+
 // Routes
 if (!process.env.SELF_HOSTED) {
 	app.get('/', sendFile);
