@@ -7,6 +7,7 @@ import { IconSettings, IconX } from '@tabler/icons-react';
 import { useNavigate } from 'react-router-dom';
 import useLocalStorage from '../util/useLocalStorage';
 import axios from 'axios';
+import Spinner from '../components/Spinner';
 
 export default function App() {
 	const [code, setCode] = useState('');
@@ -214,7 +215,11 @@ export default function App() {
 								<div className='my-4' />
 								<h3 className='opacity-80 text-xl'>Scan the QR Code</h3>
 								<div className='my-2' />
-								<QRCodeCanvas value={code} bgColor='#0000' fgColor='#ccf' />
+								{code.length > 0 ? (
+									<QRCodeCanvas value={code} bgColor='#0000' fgColor='#ccf' />
+								) : (
+									<Spinner />
+								)}
 								<div className='my-4' />
 								<h3 className='opacity-80 text-xl'>
 									or type in the code manually:
@@ -224,7 +229,9 @@ export default function App() {
 							</div>
 							<div className='flex flex-row lg:flex-col w-full h-auto lg:w-auto lg:h-full items-center gap-4'>
 								<div className='h-px w-full lg:h-full lg:w-px bg-white opacity-10 flex-1' />
-								<p>OR</p>
+								<p className='aspect-square rounded-full border border-white border-opacity-10 p-4 font-bold text-[#ccf]'>
+									OR
+								</p>
 								<div className='h-px w-full lg:h-full lg:w-px bg-white opacity-10 flex-1' />
 							</div>
 							<div className='flex-1 flex flex-col items-center justify-center'>
