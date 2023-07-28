@@ -8,6 +8,7 @@ import { useNavigate } from 'react-router-dom';
 import useLocalStorage from '../util/useLocalStorage';
 import axios from 'axios';
 import Spinner from '../components/Spinner';
+import { AnimatePresence, motion } from 'framer-motion';
 
 export default function App() {
 	const [code, setCode] = useState('');
@@ -170,95 +171,112 @@ export default function App() {
 					/>
 				</button>
 				<div className='container mx-auto p-2'>
-					{type ? (
-						type == 'sender' ? (
-							<div>
-								<h1 className='text-[#ccf] font-bold'>Send a message</h1>
-								<p className='opacity-80 text-xl'>Text</p>
-								<form
-									onSubmit={(e) => {
-										e.preventDefault();
+					<AnimatePresence mode='wait' initial>
+						<motion.div
+							initial={{ opacity: 0 }}
+							animate={{ opacity: 1 }}
+							exit={{ opacity: 0 }}
+							transition={{ duration: 0.2 }}
+							className='w-full h-screen'
+							key={`${type ? 'transfer' : 'login'}`}
+						>
+							{type ? (
+								type == 'sender' ? (
+									<div>
+										<h1 className='text-[#ccf] font-bold'>Send a message</h1>
+										<p className='opacity-80 text-xl'>Text</p>
+										<form
+											onSubmit={(e) => {
+												e.preventDefault();
 
-										socket.emit('text', inputText);
+												socket.emit('text', inputText);
 
-										setInputText('');
-									}}
-								>
-									<input
-										name='code'
-										type='text'
-										className='w-full p-2 focus:outline-none border-2 border-white border-opacity-10 placeholder:text-white focus:border-opacity-30 placeholder:opacity-50 bg-[#111] rounded-lg transition-all duration-100'
-										placeholder='Code'
-										value={inputText}
-										onChange={(e) => {
-											setInputText(e.target.value);
-										}}
-									/>
-								</form>
-							</div>
-						) : (
-							<div className='flex flex-col gap-4'>
-								<h1 className='text-[#ccf] font-bold'>Received messages</h1>
-								<p>Session code: {code}</p>
-								{texts.map((text, i) => (
-									<p key={i} className='bg-[#333] rounded-lg p-2'>
-										[{moment.unix(text.timestamp).format('HH:mm:ss')}]{' '}
-										{text.msg}
-									</p>
-								))}
-							</div>
-						)
-					) : (
-						<div className='flex flex-col gap-8 lg:flex-row w-full h-full items-center'>
-							<div className='flex-1 flex flex-col items-center justify-center'>
-								<h1 className='text-[#ccf] text-3xl font-bold'>Send text</h1>
-								<div className='my-4' />
-								<h3 className='opacity-80 text-xl'>Scan the QR Code</h3>
-								<div className='my-2' />
-								{code.length > 0 ? (
-									<QRCodeCanvas value={code} bgColor='#0000' fgColor='#ccf' />
+												setInputText('');
+											}}
+										>
+											<input
+												name='code'
+												type='text'
+												className='w-full p-2 focus:outline-none border-2 border-white border-opacity-10 placeholder:text-white focus:border-opacity-30 placeholder:opacity-50 bg-[#111] rounded-lg transition-all duration-100'
+												placeholder='Code'
+												value={inputText}
+												onChange={(e) => {
+													setInputText(e.target.value);
+												}}
+											/>
+										</form>
+									</div>
 								) : (
-									<Spinner />
-								)}
-								<div className='my-4' />
-								<h3 className='opacity-80 text-xl'>
-									or type in the code manually:
-								</h3>
-								<div className='my-2' />
-								<p>{code}</p>
-							</div>
-							<div className='flex flex-row lg:flex-col w-full h-auto lg:w-auto lg:h-full items-center gap-4'>
-								<div className='h-px w-full lg:h-full lg:w-px bg-white opacity-10 flex-1' />
-								<p className='aspect-square rounded-full border border-white border-opacity-10 p-4 font-bold text-[#ccf]'>
-									OR
-								</p>
-								<div className='h-px w-full lg:h-full lg:w-px bg-white opacity-10 flex-1' />
-							</div>
-							<div className='flex-1 flex flex-col items-center justify-center'>
-								<h1 className='text-[#ccf] text-3xl font-bold'>Receive</h1>
-								<div className='my-4' />
-								<p>Type in code:</p>
-								<div className='my-2' />
-								<form
-									onSubmit={(e) => {
-										e.preventDefault();
-										const code = new FormData(e.target as HTMLFormElement).get(
-											'code',
-										);
+									<div className='flex flex-col gap-4'>
+										<h1 className='text-[#ccf] font-bold'>Received messages</h1>
+										<p>Session code: {code}</p>
+										{texts.map((text, i) => (
+											<p key={i} className='bg-[#333] rounded-lg p-2'>
+												[{moment.unix(text.timestamp).format('HH:mm:ss')}]{' '}
+												{text.msg}
+											</p>
+										))}
+									</div>
+								)
+							) : (
+								<div className='flex flex-col gap-8 lg:flex-row w-full h-full items-center'>
+									<div className='flex-1 flex flex-col items-center justify-center'>
+										<h1 className='text-[#ccf] text-3xl font-bold'>
+											Send text
+										</h1>
+										<div className='my-4' />
+										<h3 className='opacity-80 text-xl'>Scan the QR Code</h3>
+										<div className='my-2' />
+										{code.length > 0 ? (
+											<QRCodeCanvas
+												value={code}
+												bgColor='#0000'
+												fgColor='#ccf'
+											/>
+										) : (
+											<Spinner />
+										)}
+										<div className='my-4' />
+										<h3 className='opacity-80 text-xl'>
+											or type in the code manually:
+										</h3>
+										<div className='my-2' />
+										<p>{code}</p>
+									</div>
+									<div className='flex flex-row lg:flex-col w-full h-auto lg:w-auto lg:h-full items-center gap-4'>
+										<div className='h-px w-full lg:h-full lg:w-px bg-white opacity-10 flex-1' />
+										<p className='aspect-square rounded-full border border-white border-opacity-10 p-4 font-bold text-[#ccf]'>
+											OR
+										</p>
+										<div className='h-px w-full lg:h-full lg:w-px bg-white opacity-10 flex-1' />
+									</div>
+									<div className='flex-1 flex flex-col items-center justify-center'>
+										<h1 className='text-[#ccf] text-3xl font-bold'>Receive</h1>
+										<div className='my-4' />
+										<p>Type in code:</p>
+										<div className='my-2' />
+										<form
+											onSubmit={(e) => {
+												e.preventDefault();
+												const code = new FormData(
+													e.target as HTMLFormElement,
+												).get('code');
 
-										socket.emit('code', code);
-									}}
-								>
-									<input
-										name='code'
-										type='text'
-										className='w-full p-2 focus:outline-none border-2 border-white border-opacity-10 placeholder:text-white focus:border-opacity-30 placeholder:opacity-50 bg-[#111] rounded-lg transition-all duration-100'
-										placeholder='Code'
-									/>
-								</form>
-							</div>
-						</div>
-					)}
+												socket.emit('code', code);
+											}}
+										>
+											<input
+												name='code'
+												type='text'
+												className='w-full p-2 focus:outline-none border-2 border-white border-opacity-10 placeholder:text-white focus:border-opacity-30 placeholder:opacity-50 bg-[#111] rounded-lg transition-all duration-100'
+												placeholder='Code'
+											/>
+										</form>
+									</div>
+								</div>
+							)}
+						</motion.div>
+					</AnimatePresence>
 				</div>
 			</div>
 			<Footer />
