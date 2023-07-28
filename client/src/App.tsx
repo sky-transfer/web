@@ -68,7 +68,7 @@ export default function App() {
 					</BrowserRouter>
 				</Suspense>
 			)}
-			<AnimatePresence mode='wait' initial={false}>
+			<AnimatePresence initial={false}>
 				{loading && (
 					<motion.div
 						initial={{ opacity: 0 }}
