@@ -56,6 +56,10 @@ export default function App() {
 			setType(undefined);
 		});
 
+		socket.on('connect', () => {
+			console.log(`[ST]: Connected to ${url}`);
+		});
+
 		socket.connect();
 	}, []);
 
@@ -100,21 +104,20 @@ export default function App() {
 								) as string;
 
 								axios
-									.get(`${url}/.skytransfer/isHost`)
+									.get(
+										`${url}${url.endsWith('/') ? '' : '/'}.skytransfer/isHost`,
+									)
 									.then((res) => {
 										try {
-											JSON.parse(res.data);
+											JSON.stringify(res.data);
 
 											setURL(url);
 											changeURL(url);
 										} catch (e) {
+											console.log(e);
 											alert('This is not a Sky Transfer Server!');
 											return;
 										}
-									})
-									.catch((re) => {
-										console.log(re);
-										alert('This is not a Sky Transfer Server!');
 									});
 							}}
 						>
