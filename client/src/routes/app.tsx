@@ -3,8 +3,9 @@ import Footer from '../components/Footer';
 import { QRCodeCanvas } from 'qrcode.react';
 import useSocket from '../util/useSocket';
 import moment from 'moment';
-import { IconX } from '@tabler/icons-react';
+import { IconSettings, IconX } from '@tabler/icons-react';
 import { useNavigate } from 'react-router-dom';
+import useLocalStorage from '../util/useLocalStorage';
 
 export default function App() {
 	const [code, setCode] = useState('');
@@ -18,6 +19,8 @@ export default function App() {
 	const navigate = useNavigate();
 
 	const { socket } = useSocket();
+
+	const [showSettings, setShowSettings] = useState(false);
 
 	useEffect(() => {
 		socket.on('code', (c: string) => {
@@ -52,6 +55,55 @@ export default function App() {
 
 	return (
 		<div className='min-h-screen overflow-x-hidden max-h-screen overflow-y-visible bg-[#222]'>
+			{showSettings && (
+				<div
+					className={`z-[690] absolute top-0 left-0 w-full h-screen ${
+						showSettings
+							? 'backdrop-blur-sm pointer-events-auto'
+							: 'backdrop-blur-0 pointer-events-none'
+					} transition-all duration-200`}
+				>
+					<div className='relative w-full h-full'>
+						<div
+							className='absolute top-0 left-0 w-full h-full'
+							onClick={() => {
+								setShowSettings(false);
+							}}
+						/>
+					</div>
+					<div className='absolute top-0 left-0 w-full h-full flex justify-center items-center'>
+						<div className='bg-[#333] rounded-lg p-8'>
+							<h1 className='text-[#ccf] font-bold'>Settings</h1>
+							<h3 className='text-xl'>Host URL</h3>
+							<p className='opacity-80'>
+								The URL of the Sky Transfer Server. Change if you want to use
+								your self hosted server.
+							</p>
+							<form
+								onSubmit={(e) => {
+									e.preventDefault();
+
+									const url = new FormData(e.target as HTMLFormElement).get(
+										'url',
+									) as string;
+								}}
+							>
+								<input
+									name='url'
+									type='text'
+									className='w-full p-2 focus:outline-none border-2 border-white border-opacity-10 placeholder:text-white focus:border-opacity-30 placeholder:opacity-50 bg-[#111] rounded-lg transition-all duration-100'
+									placeholder='https://sky-transfer.redcrafter07.de'
+									required
+								/>
+
+								<button className='bg-green-500 hover:bg-opacity-75 active:scale-95 py-2 px-4 text-white rounded-full'>
+									<p className='font-bold'>Save</p>
+								</button>
+							</form>
+						</div>
+					</div>
+				</div>
+			)}
 			<div className='flex min-h-screen'>
 				<button className='absolute top-4 left-4'>
 					<IconX
@@ -69,6 +121,14 @@ export default function App() {
 							setType(undefined);
 
 							socket.disconnect();
+						}}
+					/>
+				</button>
+				<button className='absolute top-4 right-4'>
+					<IconSettings
+						className='text-[#ccf] hover:rotate-45 active:-rotate-45 transition-all duration-100 cursor-pointer active:scale-95'
+						onClick={() => {
+							setShowSettings(true);
 						}}
 					/>
 				</button>
