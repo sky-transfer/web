@@ -76,8 +76,8 @@ export default function App() {
 							}}
 						/>
 					</div>
-					<div className='absolute top-0 left-0 w-full h-full flex justify-center items-center'>
-						<div className='bg-[#333] rounded-lg p-8'>
+					<div className='absolute top-0 left-0 w-full h-full flex justify-center items-center pointer-events-none'>
+						<div className='bg-[#333] rounded-lg p-8 pointer-events-auto'>
 							<h1 className='text-[#ccf] font-bold'>Settings</h1>
 							<h3 className='text-xl'>Host URL</h3>
 							<p className='opacity-80'>
