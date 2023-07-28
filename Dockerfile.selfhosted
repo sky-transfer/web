@@ -8,10 +8,10 @@ ENV SELF_HOSTED=true
 RUN npm install -g pnpm
 
 # Copy everything over
-COPY . .
+COPY ./server .
 
 # Install all production dependencies
-RUN pnpm -r i -P --frozen-lockfile
+RUN pnpm i -P --frozen-lockfile
 
 # Build the application
 RUN pnpm build
