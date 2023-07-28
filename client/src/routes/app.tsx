@@ -105,7 +105,7 @@ export default function App() {
 										required
 									/>
 
-									<button className='bg-green-500 hover:bg-opacity-75 active:scale-95 py-2 px-4 text-white rounded-r-lg'>
+									<button className='bg-green-600 hover:bg-opacity-75 active:scale-95 py-2 px-4 text-white rounded-r-lg'>
 										<p className='font-bold'>Save</p>
 									</button>
 								</div>
