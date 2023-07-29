@@ -1,6 +1,7 @@
 import { AnimatePresence, motion } from 'framer-motion';
 import { textContainer, textItem } from '../components/Banner';
 import { useEffect, useRef, useState } from 'react';
+import Navbar from '../components/Navbar';
 
 export default function selfHost() {
 	const [navDetach, setNavDetach] = useState(false);
@@ -27,6 +28,7 @@ export default function selfHost() {
 
 	return (
 		<div className='bg-[#111111] text-white min-h-screen overflow-x-hidden max-h-screen w-full overflow-y-visible'>
+			<Navbar navDetach={navDetach} />
 			<div className='h-screen'>
 				<AnimatePresence>
 					<motion.div
