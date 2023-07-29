@@ -27,7 +27,7 @@ const Codeblock = (props: { content: string }) => {
 					}}
 				/>
 			) : (
-				<IconCheck />
+				<IconCheck className='text-[#ccf]' />
 			)}
 		</p>
 	);
