@@ -86,7 +86,10 @@ export default function selfHost() {
 							>
 								Self hosting docs
 							</motion.h1>
-							<motion.p variants={textItem}>
+							<motion.p
+								variants={textItem}
+								className='text-xl md:text-2xl lg:text-3xl'
+							>
 								Host your own Sky Transfer Server
 							</motion.p>
 						</div>
