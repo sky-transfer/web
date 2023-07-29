@@ -18,6 +18,7 @@ import {
 import Footer from '../components/Footer';
 import { useNavigate } from 'react-router-dom';
 import { AnimatePresence, motion, TargetAndTransition } from 'framer-motion';
+import Navbar from '../components/Navbar';
 
 export type MotionVariant = Record<string, TargetAndTransition>;
 
@@ -78,17 +79,7 @@ export default function Home() {
 			className='bg-[#111111] text-white min-h-screen overflow-x-hidden max-h-screen w-full overflow-y-visible'
 			ref={mainComponent}
 		>
-			<div
-				className={`h-16 w-[calc(100%-25px)] bg-[#111] border border-white backdrop-blur-sm ${
-					navDetach
-						? 'bg-opacity-50 rounded-lg m-2 border-opacity-5'
-						: 'bg-opacity-0 border-opacity-0'
-				} fixed top-0 left-0 w-[calc(100%-20px)] p-4 flex z-50 transition-all duration-200`}
-			>
-				<p className='uppercase text-2xl my-auto font-black tracking-widest'>
-					Skytransfer
-				</p>
-			</div>
+			<Navbar navDetach={navDetach} />
 			<Banner scrollY={scrollY} />
 			<div
 				className='h-screen grid place-items-center text-center relative'
