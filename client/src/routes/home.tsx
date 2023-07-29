@@ -294,10 +294,7 @@ export default function Home() {
 									<IconServer className='text-[#ccf] group-hover:drop-shadow-glow-small transition-all duration-100 w-12 h-auto' />
 									<div className='my-2' />
 									<h2 className='text-xl'>
-										Self-host{' '}
-										<span className='opacity-50 text-[#ccf]'>
-											(coming soon!)
-										</span>
+										Self-host <span className='text-[#ccf]'>(new!)</span>
 									</h2>
 									<p className='opacity-80 w-3/4'>
 										We provide a Docker image for you to host your own Sky
