@@ -152,7 +152,7 @@ export default function Home() {
 				</h3>
 			</div>
 			<div className='w-full h-32 bg-gradient-to-b from-transparent to-[#222]' />
-			<div className='min-h-screen bg-[#222]'>
+			<div className='bg-[#222]'>
 				<div className='container mx-auto px-2 py-16'>
 					<div className='flex flex-col gap-4'>
 						{[
