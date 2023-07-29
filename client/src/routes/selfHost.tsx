@@ -131,6 +131,9 @@ export default function selfHost() {
 						<div className='my-4' />
 						<p className='opacity-80'>Command</p>
 						<div className='my-2' />
+						<Codeblock
+							content={`docker run -p ${port}:3000 -d --restart=always --name sky-transfer ghcr.io/sky-transfer/web:prod`}
+						/>
 					</div>
 				</div>
 			</div>
