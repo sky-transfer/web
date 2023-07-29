@@ -12,6 +12,7 @@ import {
 	IconMessage,
 	IconRocket,
 	IconServer,
+	IconServerBolt,
 	IconWorld,
 } from '@tabler/icons-react';
 import Footer from '../components/Footer';
@@ -326,6 +327,15 @@ export default function Home() {
 						>
 							<IconWorld />
 							Web Interface
+						</button>
+						<button
+							className='btn-secondary flex flex-row gap-4 font-bold'
+							onClick={() => {
+								navigate('/self-host');
+							}}
+						>
+							<IconServerBolt />
+							Self hosting docs
 						</button>
 						<button
 							onClick={() => open('/download/android', '_blank')}
