@@ -62,7 +62,7 @@ export default function selfHost() {
 			ref={mainComponent}
 		>
 			<Navbar navDetach={navDetach} />
-			<div className='h-screen'>
+			<div className='h-screen bg-gradient-to-br from-[#5A5AD6] to-[#3333CD]'>
 				<AnimatePresence>
 					<motion.div
 						variants={textContainer}
