@@ -134,6 +134,50 @@ export default function selfHost() {
 						<Codeblock
 							content={`docker run -p ${port}:3000 -d --restart=always --name sky-transfer ghcr.io/sky-transfer/web:prod`}
 						/>
+
+						<div className='my-4' />
+						<p className='text-[#ccf] text-xl'>No volumes?</p>
+						<div className='my-2' />
+						<p>
+							As we don't store any data, we don't need a volume! It's very
+							straight forward.
+						</p>
+					</div>
+					<div>
+						<h1>Updating</h1>
+						<div className='my-2' />
+						<p>
+							There's a new update? No problem! Here's how you can update your
+							container:
+						</p>
+
+						<div className='my-4' />
+
+						<Codeblock content='docker stop sky-transfer' />
+						<div className='my-2' />
+						<Codeblock content='docker rm sky-transfer' />
+						<div className='my-2' />
+						<Codeblock content='docker pull ghcr.io/sky-transfer/web:prod' />
+						<div className='my-2' />
+						<Codeblock
+							content={`docker run -p ${port}:3000 -d --restart=always --name sky-transfer ghcr.io/sky-transfer/web:prod`}
+						/>
+					</div>
+					<div>
+						<h1>Uninstalling</h1>
+						<div className='my-2' />
+						<p>
+							If you're done using Sky Transfer and want to uninstall it, here's
+							how:
+						</p>
+
+						<div className='my-4' />
+
+						<Codeblock content='docker stop sky-transfer' />
+						<div className='my-2' />
+						<Codeblock content='docker rm sky-transfer' />
+						<div className='my-2' />
+						<Codeblock content='docker rmi ghcr.io/sky-transfer/web:prod' />
 					</div>
 				</div>
 			</div>
