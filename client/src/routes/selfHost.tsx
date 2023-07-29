@@ -3,6 +3,7 @@ import { textContainer, textItem } from '../components/Banner';
 import { useEffect, useRef, useState } from 'react';
 import Navbar from '../components/Navbar';
 import { IconCheck, IconClipboard } from '@tabler/icons-react';
+import Footer from '../components/Footer';
 
 const Codeblock = (props: { content: string }) => {
 	const [copied, setCopied] = useState(false);
@@ -181,6 +182,7 @@ export default function selfHost() {
 					</div>
 				</div>
 			</div>
+			<Footer />
 		</div>
 	);
 }
