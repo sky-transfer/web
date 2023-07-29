@@ -1,4 +1,8 @@
+import { useNavigate } from 'react-router-dom';
+
 export default function Navbar(props: { navDetach: boolean }) {
+	const navigate = useNavigate();
+
 	return (
 		<div
 			className={`h-16 w-[calc(100%-25px)] bg-[#111] border border-white backdrop-blur-sm ${
@@ -7,7 +11,12 @@ export default function Navbar(props: { navDetach: boolean }) {
 					: 'bg-opacity-0 border-opacity-0'
 			} fixed top-0 left-0 w-[calc(100%-20px)] p-4 flex z-50 transition-all duration-200`}
 		>
-			<p className='uppercase text-2xl my-auto font-black tracking-widest'>
+			<p
+				className='uppercase text-2xl my-auto font-black tracking-widest select-none cursor-pointer'
+				onClick={() => {
+					navigate('/');
+				}}
+			>
 				Skytransfer
 			</p>
 		</div>
