@@ -4,6 +4,7 @@ import { AnimatePresence, motion } from 'framer-motion';
 
 const Home = lazy(() => import('./routes/home'));
 const App = lazy(() => import('./routes/app'));
+const SelfHost = lazy(() => import('./routes/selfHost'));
 
 export default function Router() {
 	const location = useLocation();
@@ -29,6 +30,7 @@ export default function Router() {
 						<Route path='/'>
 							<Route index element={<Home />} />
 							<Route path='app' element={<App />} />
+							<Route path='self-host' element={<SelfHost />} />
 						</Route>
 					</Routes>
 				</motion.div>
