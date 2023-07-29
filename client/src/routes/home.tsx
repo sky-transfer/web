@@ -16,6 +16,34 @@ import {
 } from '@tabler/icons-react';
 import Footer from '../components/Footer';
 import { useNavigate } from 'react-router-dom';
+import { AnimatePresence, motion, TargetAndTransition } from 'framer-motion';
+
+export type MotionVariant = Record<string, TargetAndTransition>;
+
+const gridContainer = {
+	hidden: { opacity: 0 },
+	show: {
+		opacity: 1,
+		transition: {
+			staggerChildren: 0.2,
+		},
+	},
+};
+
+const gridItem = {
+	hidden: {
+		opacity: 0,
+		y: 20,
+	},
+	show: {
+		opacity: 1,
+		y: 0,
+		transition: {
+			duration: 0.8,
+			ease: [0.17, 0.67, 0.48, 0.98],
+		},
+	},
+};
 
 export default function Home() {
 	const [navDetach, setNavDetach] = useState(false);
@@ -165,88 +193,120 @@ export default function Home() {
 			<div className='w-full h-32 bg-gradient-to-b from-[#222] to-[#333]' />
 			<div className='bg-[#333]'>
 				<div className='container mx-auto p-2'>
-					<div
-						className='grid grid-cols-1 lg:grid-cols-3 lg:grid-rows-2 gap-4 w-full h-full'
-						id='features'
-					>
-						<div className='h-full p-8 bg-[#222] border-white border-opacity-10 border rounded-lg text-left flex flex-col items-start justify-center group'>
-							<IconRocket className='w-12 h-auto text-[#ccf] group-hover:drop-shadow-glow-small transition-all duration-100' />
-							<div className='my-2' />
-							<h2 className='text-xl'>Start fast</h2>
-							<p className='opacity-80'>
-								To get started, simply scan a QR Code on a device
-							</p>
-						</div>
-						<div className='h-full p-8 bg-[#222] border-white border-opacity-10 border rounded-lg text-left flex flex-col items-start justify-center group'>
-							<IconLock className='w-12 h-auto text-[#ccf] group-hover:drop-shadow-glow-small transition-all duration-100' />
-							<div className='my-2' />
-							<h2 className='text-xl'>No data storage</h2>
-							<p className='opacity-80'>
-								We don't store any but the required data
-							</p>
-						</div>
-						<div className='lg:row-span-2 p-8 bg-[#222] border-white border-opacity-10 border rounded-lg flex flex-col justify-center h-full group'>
-							<IconCode className='w-12 h-auto text-[#ccf] group-hover:drop-shadow-glow-small transition-all duration-100' />
-							<div className='my-2' />
-							<h2 className='text-xl'>We're open source!</h2>
-							<p className='opacity-80'>
-								We use open source software and we're open source too! Both our
-								apps and our server are open source, so you can check them out
-								on our GitHub page. Feel free to contribute to this project!
-							</p>
-						</div>
-						<div className='lg:col-span-2 h-full p-8 bg-[#222] border-white border-opacity-10 border rounded-lg text-left flex flex-col items-start justify-center group'>
-							<IconDeviceDesktop className='w-12 h-auto text-[#ccf] group-hover:drop-shadow-glow-small transition-all duration-100' />
-							<div className='my-2' />
-							<h2 className='text-xl'>Cross-Platform</h2>
-							<p className='opacity-80 w-3/4'>
-								Just because of the web interface alone, you can use Sky
-								Transfer on any device you like!
-								<br /> We have built our own Android app too, so you can use it
-								on your phone more easily
-							</p>
-						</div>
-						<div className='lg:col-span-3 gap-4 grid grid-cols-1 lg:grid-cols-4'>
-							<div className='h-full p-8 bg-[#222] border-white border-opacity-10 border rounded-lg text-left flex flex-col items-start justify-center group'>
-								<IconBrandReact className='text-[#ccf] group-hover:drop-shadow-glow-small transition-all duration-100 w-12 h-auto' />
+					<AnimatePresence>
+						<motion.div
+							variants={gridContainer}
+							initial='hidden'
+							whileInView='show'
+							className='grid grid-cols-1 lg:grid-cols-3 lg:grid-rows-2 gap-4 w-full h-full'
+							id='features'
+						>
+							<motion.div
+								variants={gridItem}
+								className='h-full p-8 bg-[#222] border-white border-opacity-10 border rounded-lg text-left flex flex-col items-start justify-center group'
+							>
+								<IconRocket className='w-12 h-auto text-[#ccf] group-hover:drop-shadow-glow-small transition-all duration-100' />
 								<div className='my-2' />
-								<h2 className='text-xl'>Built with React</h2>
-								<p className='opacity-80 w-3/4'>
-									We use React for our web interface and React Native for our
-									mobile app
+								<h2 className='text-xl'>Start fast</h2>
+								<p className='opacity-80'>
+									To get started, simply scan a QR Code on a device
 								</p>
-							</div>
-							<div className='h-full p-8 bg-[#222] border-white border-opacity-10 border rounded-lg text-left flex flex-col items-start justify-center group'>
-								<IconBrandGithub className='text-[#ccf] group-hover:drop-shadow-glow-small transition-all duration-100 w-12 h-auto' />
+							</motion.div>
+							<motion.div
+								variants={gridItem}
+								className='h-full p-8 bg-[#222] border-white border-opacity-10 border rounded-lg text-left flex flex-col items-start justify-center group'
+							>
+								<IconLock className='w-12 h-auto text-[#ccf] group-hover:drop-shadow-glow-small transition-all duration-100' />
 								<div className='my-2' />
-								<h2 className='text-xl'>Hosted on GitHub</h2>
-								<p className='opacity-80 w-3/4'>
-									We use GitHub for our source code management and for our CD
+								<h2 className='text-xl'>No data storage</h2>
+								<p className='opacity-80'>
+									We don't store any but the required data
 								</p>
-							</div>
-							<div className='h-full p-8 bg-[#222] border-white border-opacity-10 border rounded-lg text-left flex flex-col items-start justify-center group'>
-								<IconBrandDocker className='text-[#ccf] group-hover:drop-shadow-glow-small transition-all duration-100 w-12 h-auto' />
+							</motion.div>
+							<motion.div
+								variants={gridItem}
+								className='lg:row-span-2 p-8 bg-[#222] border-white border-opacity-10 border rounded-lg flex flex-col justify-center h-full group'
+							>
+								<IconCode className='w-12 h-auto text-[#ccf] group-hover:drop-shadow-glow-small transition-all duration-100' />
 								<div className='my-2' />
-								<h2 className='text-xl'>Running with Docker</h2>
-								<p className='opacity-80 w-3/4'>
-									Under the hood, we use Docker to run our server. This makes
-									our server more secure and easier to deploy
+								<h2 className='text-xl'>We're open source!</h2>
+								<p className='opacity-80'>
+									We use open source software and we're open source too! Both
+									our apps and our server are open source, so you can check them
+									out on our GitHub page. Feel free to contribute to this
+									project!
 								</p>
-							</div>
-							<div className='h-full p-8 bg-[#222] border-white border-opacity-10 border rounded-lg text-left flex flex-col items-start justify-center group'>
-								<IconServer className='text-[#ccf] group-hover:drop-shadow-glow-small transition-all duration-100 w-12 h-auto' />
+							</motion.div>
+							<motion.div
+								variants={gridItem}
+								className='lg:col-span-2 h-full p-8 bg-[#222] border-white border-opacity-10 border rounded-lg text-left flex flex-col items-start justify-center group'
+							>
+								<IconDeviceDesktop className='w-12 h-auto text-[#ccf] group-hover:drop-shadow-glow-small transition-all duration-100' />
 								<div className='my-2' />
-								<h2 className='text-xl'>
-									Self-host{' '}
-									<span className='opacity-50 text-[#ccf]'>(coming soon!)</span>
-								</h2>
+								<h2 className='text-xl'>Cross-Platform</h2>
 								<p className='opacity-80 w-3/4'>
-									We provide a Docker image for you to host your own Sky
-									Transfer server
+									Just because of the web interface alone, you can use Sky
+									Transfer on any device you like!
+									<br /> We have built our own Android app too, so you can use
+									it on your phone more easily
 								</p>
+							</motion.div>
+							<div className='lg:col-span-3 gap-4 grid grid-cols-1 lg:grid-cols-4'>
+								<motion.div
+									variants={gridItem}
+									className='h-full p-8 bg-[#222] border-white border-opacity-10 border rounded-lg text-left flex flex-col items-start justify-center group'
+								>
+									<IconBrandReact className='text-[#ccf] group-hover:drop-shadow-glow-small transition-all duration-100 w-12 h-auto' />
+									<div className='my-2' />
+									<h2 className='text-xl'>Built with React</h2>
+									<p className='opacity-80 w-3/4'>
+										We use React for our web interface and React Native for our
+										mobile app
+									</p>
+								</motion.div>
+								<motion.div
+									variants={gridItem}
+									className='h-full p-8 bg-[#222] border-white border-opacity-10 border rounded-lg text-left flex flex-col items-start justify-center group'
+								>
+									<IconBrandGithub className='text-[#ccf] group-hover:drop-shadow-glow-small transition-all duration-100 w-12 h-auto' />
+									<div className='my-2' />
+									<h2 className='text-xl'>Hosted on GitHub</h2>
+									<p className='opacity-80 w-3/4'>
+										We use GitHub for our source code management and for our CD
+									</p>
+								</motion.div>
+								<motion.div
+									variants={gridItem}
+									className='h-full p-8 bg-[#222] border-white border-opacity-10 border rounded-lg text-left flex flex-col items-start justify-center group'
+								>
+									<IconBrandDocker className='text-[#ccf] group-hover:drop-shadow-glow-small transition-all duration-100 w-12 h-auto' />
+									<div className='my-2' />
+									<h2 className='text-xl'>Running with Docker</h2>
+									<p className='opacity-80 w-3/4'>
+										Under the hood, we use Docker to run our server. This makes
+										our server more secure and easier to deploy
+									</p>
+								</motion.div>
+								<motion.div
+									variants={gridItem}
+									className='h-full p-8 bg-[#222] border-white border-opacity-10 border rounded-lg text-left flex flex-col items-start justify-center group'
+								>
+									<IconServer className='text-[#ccf] group-hover:drop-shadow-glow-small transition-all duration-100 w-12 h-auto' />
+									<div className='my-2' />
+									<h2 className='text-xl'>
+										Self-host{' '}
+										<span className='opacity-50 text-[#ccf]'>
+											(coming soon!)
+										</span>
+									</h2>
+									<p className='opacity-80 w-3/4'>
+										We provide a Docker image for you to host your own Sky
+										Transfer server
+									</p>
+								</motion.div>
 							</div>
-						</div>
-					</div>
+						</motion.div>
+					</AnimatePresence>
 					<div className='my-16' />
 					<div
 						className='flex flex-row items-center gap-8 text-center'
