@@ -109,7 +109,7 @@ export default function selfHost() {
 							this command:
 						</p>
 						<div className='my-4' />
-						<Codeblock content='docker pull ghcr.io/sky-transfer/web' />
+						<Codeblock content='docker pull ghcr.io/sky-transfer/web:prod' />
 					</div>
 				</div>
 			</div>
