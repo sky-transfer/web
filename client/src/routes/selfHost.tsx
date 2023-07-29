@@ -42,7 +42,10 @@ export default function selfHost() {
 	}, [mainComponent.current]);
 
 	return (
-		<div className='bg-[#111111] text-white min-h-screen overflow-x-hidden max-h-screen w-full overflow-y-visible'>
+		<div
+			className='bg-[#111111] text-white min-h-screen overflow-x-hidden max-h-screen w-full overflow-y-visible'
+			ref={mainComponent}
+		>
 			<Navbar navDetach={navDetach} />
 			<div className='h-screen'>
 				<AnimatePresence>
