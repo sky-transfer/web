@@ -2,6 +2,21 @@ import { AnimatePresence, motion } from 'framer-motion';
 import { textContainer, textItem } from '../components/Banner';
 import { useEffect, useRef, useState } from 'react';
 import Navbar from '../components/Navbar';
+import { IconClipboard } from '@tabler/icons-react';
+
+const Codeblock = (props: { content: string }) => {
+	return (
+		<p className='p-4 bg-[#222] rounded-lg flex flex-row justify-between'>
+			<p className='font-mono'>{props.content}</p>
+			<IconClipboard
+				className='opacity-50 hover:opacity-100 active:scale-95 transition-all duration-100'
+				onClick={() => {
+					navigator.clipboard.writeText(props.content);
+				}}
+			/>
+		</p>
+	);
+};
 
 export default function selfHost() {
 	const [navDetach, setNavDetach] = useState(false);
@@ -59,6 +74,26 @@ export default function selfHost() {
 						</div>
 					</motion.div>
 				</AnimatePresence>
+			</div>
+			<div className='min-h-screen bg-[#333] py-8 p-4'>
+				<div className='flex flex-col gap-8 container mx-auto w-full h-full'>
+					<div>
+						<h1>1. Install Docker</h1>
+						<div>
+							If you haven't already, install Docker. You can find a guide here.
+						</div>
+					</div>
+					<div>
+						<h1>2. Pull the image</h1>
+						<p>
+							The self-hosted image is available on the GitHub Container
+							Registry (or ghcr for short). You can pull the image by running
+							this command:
+						</p>
+						<div className='my-4' />
+						<Codeblock content='docker pull ghcr.io/sky-transfer/web' />
+					</div>
+				</div>
 			</div>
 		</div>
 	);
