@@ -2,18 +2,33 @@ import { AnimatePresence, motion } from 'framer-motion';
 import { textContainer, textItem } from '../components/Banner';
 import { useEffect, useRef, useState } from 'react';
 import Navbar from '../components/Navbar';
-import { IconClipboard } from '@tabler/icons-react';
+import { IconCheck, IconClipboard } from '@tabler/icons-react';
 
 const Codeblock = (props: { content: string }) => {
+	const [copied, setCopied] = useState(false);
+
+	useEffect(() => {
+		if (!copied) return;
+
+		setTimeout(() => {
+			setCopied(false);
+		}, 1500);
+	}, [copied]);
+
 	return (
 		<p className='p-4 bg-[#222] rounded-lg flex flex-row justify-between'>
 			<p className='font-mono'>{props.content}</p>
-			<IconClipboard
-				className='opacity-50 hover:opacity-100 active:scale-95 transition-all duration-100'
-				onClick={() => {
-					navigator.clipboard.writeText(props.content);
-				}}
-			/>
+			{!copied ? (
+				<IconClipboard
+					className='opacity-50 hover:opacity-100 active:scale-95 transition-all duration-100'
+					onClick={() => {
+						navigator.clipboard.writeText(props.content);
+						setCopied(true);
+					}}
+				/>
+			) : (
+				<IconCheck />
+			)}
 		</p>
 	);
 };
