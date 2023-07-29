@@ -38,6 +38,8 @@ export default function selfHost() {
 	const [scrollY, setScrollY] = useState(0);
 	const mainComponent = useRef<HTMLDivElement>(null);
 
+	const [port, setPort] = useState('3000');
+
 	useEffect(() => {
 		if (!mainComponent.current) return;
 		mainComponent.current.addEventListener('scroll', onScroll);
@@ -113,6 +115,22 @@ export default function selfHost() {
 						</p>
 						<div className='my-4' />
 						<Codeblock content='docker pull ghcr.io/sky-transfer/web:prod' />
+					</div>
+					<div>
+						<h1>3. Run the container!</h1>
+						<div className='my-4' />
+						<p className='opacity-80'>Enter your port</p>
+						<div className='my-2' />
+						<input
+							type='text'
+							className='w-full p-4 rounded-lg bg-[#222] focus:outline-none placeholder:text-white placeholder:opacity-50'
+							placeholder='3000'
+							value={port}
+							onChange={(e) => setPort(e.target.value)}
+						/>
+						<div className='my-4' />
+						<p className='opacity-80'>Command</p>
+						<div className='my-2' />
 					</div>
 				</div>
 			</div>
