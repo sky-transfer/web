@@ -17,7 +17,7 @@ const Codeblock = (props: { content: string }) => {
 
 	return (
 		<p className='p-4 bg-[#222] rounded-lg flex flex-row justify-between'>
-			<p className='font-mono'>{props.content}</p>
+			<p className='font-mono select-all'>{props.content}</p>
 			{!copied ? (
 				<IconClipboard
 					className='opacity-50 hover:opacity-100 active:scale-95 transition-all duration-100'
