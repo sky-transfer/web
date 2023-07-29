@@ -331,6 +331,7 @@ export default function Home() {
 							onClick={() => open('/download/android', '_blank')}
 							className='btn-secondary flex flex-row gap-4 font-bold'
 							disabled
+							title='Coming soon!'
 						>
 							<IconBrandAndroid /> Android App
 						</button>
