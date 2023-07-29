@@ -23,6 +23,10 @@ body {
 	@apply rounded-full bg-[#ccf] p-4 text-black active:scale-95 hover:drop-shadow-glow transition-all duration-100;
 }
 
+.title {
+	@apply text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight;
+}
+
 /* style scrollbar */
 
 ::-webkit-scrollbar {
