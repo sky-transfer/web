@@ -19,7 +19,7 @@ const item = {
 	show: { opacity: 1 },
 };
 
-const textContainer: Record<string, TargetAndTransition> = {
+export const textContainer: Record<string, TargetAndTransition> = {
 	hidden: { opacity: 0 },
 	show: {
 		opacity: 1,
@@ -29,7 +29,7 @@ const textContainer: Record<string, TargetAndTransition> = {
 	},
 };
 
-const textItem = {
+export const textItem: Record<string, TargetAndTransition> = {
 	hidden: {
 		opacity: 0,
 		y: 20,
