@@ -100,10 +100,7 @@ export default function Banner(props: { scrollY: number }) {
 							initial='hidden'
 							animate='show'
 						>
-							<motion.h1
-								variants={textItem}
-								className='text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight'
-							>
+							<motion.h1 variants={textItem} className='title'>
 								Text sharing has never been easier
 							</motion.h1>
 							<div className='h-2' />
