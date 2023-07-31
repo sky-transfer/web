@@ -104,7 +104,15 @@ export default function selfHost() {
 					<div>
 						<h1>1. Install Docker</h1>
 						<div>
-							If you haven't already, install Docker. You can find a guide here.
+							If you haven't already, install Docker. You can find a guide{' '}
+							<a
+								href='https://docs.docker.com/engine/install/#server'
+								target='_blank'
+								className='underline text-[#ccf] hover:text-white transition-colors duration-100'
+							>
+								here
+							</a>
+							.
 						</div>
 					</div>
 					<div>
